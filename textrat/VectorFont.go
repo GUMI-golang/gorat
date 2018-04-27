@@ -7,6 +7,8 @@ import (
 	"github.com/GUMI-golang/gumi/gcore"
 	"github.com/golang/freetype/truetype"
 	"golang.org/x/image/font/gofont/goregular"
+	"github.com/go-gl/mathgl/mgl32"
+	"image"
 )
 
 var Default Font = NewVectorFont(gcore.MustValue(truetype.Parse(goregular.TTF)).(*truetype.Font), 16, font.HintingFull)
@@ -14,7 +16,7 @@ var Default Font = NewVectorFont(gcore.MustValue(truetype.Parse(goregular.TTF)).
 type VectorFont struct {
 	f    *truetype.Font
 	n    FontName
-	size fixed.Int52_12
+	size fixed.Int26_6
 	hint font.Hinting
 }
 
@@ -26,7 +28,7 @@ func NewVectorFont(f *truetype.Font, size int, hint font.Hinting) *VectorFont {
 			FullName: f.Name(truetype.NameIDFontFullName),
 		},
 		f:    f,
-		size: gorat.I(size),
+		size: fixed.I(size),
 		hint: hint,
 	}
 }
@@ -37,7 +39,7 @@ func (s *VectorFont) Size() int {
 	return s.size.Round()
 }
 func (s *VectorFont) SetSize(size int) {
-	s.size = fixed.Int52_12(size) << 12
+	s.size = fixed.I(size)
 }
 func (s *VectorFont) Hint() font.Hinting {
 	return s.hint
@@ -46,82 +48,80 @@ func (s *VectorFont) SetHint(hint font.Hinting) {
 	s.hint = hint
 }
 //
-func (s *VectorFont) Text(ctx gorat.VectorDrawer, text string, point fixed.Point52_12, align gcore.Align) {
+func (s *VectorFont) Text(ctx gorat.VectorDrawer, text string, point mgl32.Vec2, align gcore.Align) {
 	s.PathText(ctx, text, point, align)
 	ctx.Fill()
 }
-func (s *VectorFont) TextInRect(ctx gorat.VectorDrawer, text string, rect fixed.Rectangle52_12, align gcore.Align) {
+func (s *VectorFont) TextInRect(ctx gorat.VectorDrawer, text string, rect image.Rectangle, align gcore.Align) {
 	s.PathTextInRect(ctx, text, rect, align)
 	ctx.Fill()
 }
-func (s *VectorFont) MeasureText(text string) (fixed.Point52_12) {
-	var res fixed.Point52_12
+func (s *VectorFont) MeasureText(text string) (res mgl32.Vec2) {
+
 	var previdx truetype.Index = 0
-	var scale = gorat.Fixed64ToFixed32(s.size)
 	for i, r := range []rune(text) {
 		idx := s.f.Index(r)
 		if i > 0 {
-			res.X += gorat.Fixed32ToFixed64(s.f.Kern(scale, previdx, idx))
+			res[0] += Fint32ToFloat32(s.f.Kern(s.size, previdx, idx))
 		}
-		hmat := s.f.HMetric(scale, idx)
-		res.X += gorat.Fixed32ToFixed64(hmat.AdvanceWidth + hmat.LeftSideBearing)
+		hmat := s.f.HMetric(s.size, idx)
+		res[0] += Fint32ToFloat32(hmat.AdvanceWidth + hmat.LeftSideBearing)
 		previdx = idx
 	}
-	res.Y = s.size
+	res[1] = Fint32ToFloat32(s.size)
 	return res
 }
-func (s *VectorFont) MeasureHeight() (fixed.Int52_12) {
-	return s.size
+func (s *VectorFont) MeasureHeight() (float32) {
+	return Fint32ToFloat32(s.size)
 }
-func (s *VectorFont) PathText(ctx gorat.VectorDrawer, text string, point fixed.Point52_12, align gcore.Align) {
+func (s *VectorFont) PathText(ctx gorat.VectorDrawer, text string, point mgl32.Vec2, align gcore.Align) {
 	s.drawText(
 		ctx,
 		text,
 		point.Add(alignHelp(align, s.MeasureText(text))),
 	)
 }
-func (s *VectorFont) PathTextInRect(ctx gorat.VectorDrawer, text string, rect fixed.Rectangle52_12, align gcore.Align) {
+func (s *VectorFont) PathTextInRect(ctx gorat.VectorDrawer, text string, rect image.Rectangle, align gcore.Align) {
 	//sz := s.MeasureText(text)
 	v, h := gcore.SplitAlign(align)
-	var pt fixed.Point52_12
+	var pt mgl32.Vec2
 	switch v {
 	case gcore.AlignTop:
 
 	case gcore.AlignVertical:
-		pt.Y = rect.Max.Y * 4096 / gorat.I(2)
+		pt[1] = float32(rect.Max.Y)/ 2
 	case gcore.AlignBottom:
-		pt.Y = rect.Max.Y - s.size
+		pt[1] = float32(rect.Max.Y) - Fint32ToFloat32(s.size)
 
 	}
 	switch h {
 	case gcore.AlignLeft:
 
 	case gcore.AlignHorizontal:
-		pt.X = rect.Max.X * 4096 / gorat.I(2)
+		pt[0] = float32(rect.Max.X)/ 2
 	case gcore.AlignRight:
-		pt.X = rect.Max.X
+		pt[0] = float32(rect.Max.X)
 	}
 	s.PathText(ctx, text, pt, align)
 }
 //
-func (s *VectorFont) drawText(ctx gorat.VectorDrawer, text string, point fixed.Point52_12) {
+func (s *VectorFont) drawText(ctx gorat.VectorDrawer, text string, point mgl32.Vec2) {
 
-	var scale = gorat.Fixed64ToFixed32(s.size)
 
 	var prevIdx truetype.Index = 0
 	for i, r := range []rune(text) {
 		idx := s.f.Index(r)
-		b, err := s.load(idx, scale)
+		b, err := s.load(idx, s.size)
 		if err != nil {
 			continue
 		}
 		if i > 0 {
-			point.X += gorat.Fixed32ToFixed64(s.f.Kern(scale, prevIdx, idx))
+			point[0] += Fint32ToFloat32(s.f.Kern(s.size, prevIdx, idx))
 		}
 		temp := point
-		temp.Y += gorat.Fixed32ToFixed64(b.Bounds.Min.Y)
+		temp[1] += Fint32ToFloat32(b.Bounds.Min.Y)
 		raster(ctx, b, temp)
-		point.X += gorat.Fixed32ToFixed64(b.AdvanceWidth)
+		point[0] += Fint32ToFloat32(b.AdvanceWidth)
 		prevIdx = idx
 	}
 }

@@ -1,24 +1,24 @@
 package figurat
 
 import (
-	"github.com/GUMI-golang/gumi/gorat"
 	"golang.org/x/image/math/fixed"
-	"math"
+	"github.com/GUMI-golang/gorat"
+	"github.com/go-gl/mathgl/mgl32"
 )
 
-type Figure struct {
-	raster gorat.Rasterizer
-	transform_rotation Angle
+type Canvas struct {
+	raster gorat.VectorDrawer
+	points []mgl32.Vec2
 }
 
-func NewFigure(rasterizer gorat.VectorDrawer) Figure {
-	return Figure{
+func NewCanvas(rasterizer gorat.VectorDrawer) Canvas {
+	return Canvas{
 		raster: rasterizer,
 	}
 }
 
 //
-func (s Figure) PathRect(rect fixed.Rectangle52_12) {
+func (s Canvas) PathRect(rect fixed.Rectangle52_12) {
 	s.raster.MoveTo(rect.Min)
 	s.raster.LineTo(fixed.Point52_12{
 		X:rect.Min.X,
@@ -34,7 +34,7 @@ func (s Figure) PathRect(rect fixed.Rectangle52_12) {
 const (
 	circleprecision = 24
 )
-func (s Figure) PathEllipticalArc(center fixed.Point52_12, radius fixed.Point52_12, from, to Angle) {
+func (s Canvas) PathEllipticalArc(center fixed.Point52_12, radius fixed.Point52_12, from, to Angle) {
 	const n = 16
 	var ffrom, fto = fixed.Int52_12(from), fixed.Int52_12(to)
 	for i := 0; i < n; i++ {
@@ -84,41 +84,41 @@ func (s Figure) PathEllipticalArc(center fixed.Point52_12, radius fixed.Point52_
 	//	Y:rect.Min.Y,
 	//})
 }
-func (s Figure) PathCircularArc(center fixed.Point52_12, radius fixed.Int52_12, from, to Angle) {
+func (s Canvas) PathCircularArc(center fixed.Point52_12, radius fixed.Int52_12, from, to Angle) {
 	s.PathEllipticalArc(center, fixed.Point52_12{radius, radius}, from, to)
 }
-func (s Figure) PathEllipse(center fixed.Point52_12, radius fixed.Point52_12) {
+func (s Canvas) PathEllipse(center fixed.Point52_12, radius fixed.Point52_12) {
 	s.PathEllipticalArc(center, radius, AngleZero, 2 * AnglePi)
 }
-func (s Figure) PathCircle(center fixed.Point52_12, radius fixed.Int52_12) {
+func (s Canvas) PathCircle(center fixed.Point52_12, radius fixed.Int52_12) {
 	s.PathCircularArc(center, radius, AngleZero, 2 * AnglePi)
 }
 // Regular
-func (s Figure) PathRegularTriangle(center fixed.Point52_12, radius fixed.Int52_12) {
+func (s Canvas) PathRegularTriangle(center fixed.Point52_12, radius fixed.Int52_12) {
 
 }
-func (s Figure) PathRegularRect(center fixed.Point52_12, radius fixed.Int52_12) {
+func (s Canvas) PathRegularRect(center fixed.Point52_12, radius fixed.Int52_12) {
 
 }
-func (s Figure) PathRegularPentagon(center fixed.Point52_12, radius fixed.Int52_12) {
+func (s Canvas) PathRegularPentagon(center fixed.Point52_12, radius fixed.Int52_12) {
 
 }
-func (s Figure) PathRegularHexagon(center fixed.Point52_12, radius fixed.Int52_12) {
+func (s Canvas) PathRegularHexagon(center fixed.Point52_12, radius fixed.Int52_12) {
 
 }
-func (s Figure) PathRegularPolygon(edgecount int, center fixed.Point52_12, radius fixed.Int52_12) {
+func (s Canvas) PathRegularPolygon(edgecount int, center fixed.Point52_12, radius fixed.Int52_12) {
 
 }
 // Inbound
-func (s Figure) PathInboundTriangle(rect fixed.Rectangle52_12, angle Angle) {
+func (s Canvas) PathInboundTriangle(rect fixed.Rectangle52_12, angle Angle) {
 
 }
-func (s Figure) PathInboundPentagon(rect fixed.Rectangle52_12, angle Angle) {
+func (s Canvas) PathInboundPentagon(rect fixed.Rectangle52_12, angle Angle) {
 
 }
-func (s Figure) PathInboundHexagon(rect fixed.Rectangle52_12, angle Angle) {
+func (s Canvas) PathInboundHexagon(rect fixed.Rectangle52_12, angle Angle) {
 
 }
-func (s Figure) PathInboundPolygon(edgecount int, rect fixed.Rectangle52_12, angle Angle) {
+func (s Canvas) PathInboundPolygon(edgecount int, rect fixed.Rectangle52_12, angle Angle) {
 
 }

@@ -3,7 +3,6 @@ package figurat
 import (
 	"math"
 	"golang.org/x/image/math/fixed"
-	"github.com/GUMI-golang/gumi/gorat"
 )
 
 type Angle fixed.Int52_12

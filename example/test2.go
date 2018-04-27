@@ -3,25 +3,50 @@ package main
 import (
 	"github.com/GUMI-golang/gorat"
 	"github.com/GUMI-golang/gumi/gcore"
-	"github.com/go-gl/mathgl/mgl32"
-	"image"
-	"os"
+	"runtime"
+	"github.com/GUMI-golang/gorat/fwrat"
+	"github.com/GUMI-golang/gorat/oglSupport/v43"
+	"fmt"
 )
 
+var width, height = 256, 256
 func main() {
-	rat := gorat.NewSoftwareRasterizer(100, 100)
-	tex, _, err := image.Decode(gcore.MustValue(os.Open("dirt.jpg")).(*os.File))
-	if err != nil {
-		panic(err)
-	}
-	rat.TrUV(gorat.Triangle{
-		A: mgl32.NewVecNFromData([]float32{10, 10}).Vec2(),
-		B: mgl32.NewVecNFromData([]float32{90, 10}).Vec2(),
-		C: mgl32.NewVecNFromData([]float32{10, 90}).Vec2(),
-	}, [3]mgl32.Vec2{
-		{0, 0},
-		{1, 0},
-		{0, 1},
-	}, tex)
-	gcore.Capture("aout", rat.Image())
+	runtime.LockOSThread()
+	// setup driver
+	gcore.Must(gorat.SetupDriver(v43.Driver()))
+	// image loading
+	//cube := gcore.MustValue(os.Open("example/cubes_64.png")).(*os.File)
+	//defer cube.Close()
+	//img := gcore.MustValue(png.Decode(cube)).(image.Image)
+	//
+	// screen setup
+	ctx := fwrat.OffscreenContext(width, height)
+	fmt.Println("Context", ctx)
+	// Make target texture
+	// It use driver, but if you need you can use your GL_TEXTURE_2D, GL_RGBA32F image
+	// Like
+	// res := gorat.HardwareResult(<your image uint32(gl pointer) here>)
+	res := gorat.Driver().Result(width, height)
+	defer res.Delete()
+	// gorat hardware delete gl object when grabage collecter remove *Hardware object
+	hw0 := gorat.NewHardware(res)
+	// filling
+	hw0.MoveTo(gorat.Vec2(32,32))
+	hw0.LineTo(gorat.Vec2(32, float32(height-32)))
+	hw0.LineTo(gorat.Vec2(float32(width-32), float32(height-32)))
+	hw0.LineTo(gorat.Vec2(32, float32(height-32)))
+	//hw0.SetFiller(gorat.NewImageFiller(img, gorat.ImageFillerGausian))
+	hw0.Fill()
+	// Stroking
+	//hw0.MoveTo(gorat.Vec2(32,32))
+	//hw0.LineTo(gorat.Vec2(32, float32(height-32)))
+	//hw0.LineTo(gorat.Vec2(float32(width)/2, float32(height)/2))
+	//hw0.SetStrokeWidth(4)
+	//hw0.SetStrokeJoin(gorat.StrokeJoinMiter)
+	//hw0.SetStrokeCap(gorat.StrokeCapRound)
+	//hw0.Stroke()
+
+
+	// save result
+	gcore.Capture("aout0", res.Get())
 }

@@ -1,6 +1,6 @@
 BSD 3-Clause License
 
-Copyright (c) 2018, GUMI-golang
+Copyright (c) 2018, [iamGreedy(egoavara)](https://plus.google.com/102001914699890514608)
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

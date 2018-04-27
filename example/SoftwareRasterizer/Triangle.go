@@ -7,7 +7,7 @@ import (
 )
 
 func Triangle(to *image.RGBA) {
-	// Software rasterizer support RGBA Direct and RGBA SubImage
+	// SoftwareSub rasterizer support rgba Direct and rgba SubImage
 	rat := gorat.NewSoftwareRasterizerRGBA(to)
 	//
 	rat.MoveTo([2]float32{10,10}, nil)
@@ -18,7 +18,7 @@ func Triangle(to *image.RGBA) {
 	rat.FillColor()
 }
 func TriangleSubImage(to *image.RGBA) {
-	// Software rasterizer support RGBA Direct and RGBA SubImage
+	// SoftwareSub rasterizer support rgba Direct and rgba SubImage
 
 	half := to.SubImage(image.Rect(
 		to.Rect.Min.X + to.Rect.Dx() / 4,
@@ -51,7 +51,7 @@ func TriangleCWCCWOverlap(to *image.RGBA) {
 	rat.FillColor()
 }
 func TriangleAA(to *image.RGBA) {
-	// Software rasterizer support RGBA Direct and RGBA SubImage
+	// SoftwareSub rasterizer support rgba Direct and rgba SubImage
 	rat := gorat.NewSoftwareRasterizerRGBA(to)
 	rat.SetAntiAliasing(gorat.AntiAliasing4x)
 	//

@@ -1,66 +1,56 @@
 package gorat
 
 import (
-	"golang.org/x/image/math/fixed"
+	"github.com/go-gl/mathgl/mgl32"
+	"image"
 	"image/color"
-	"image/draw"
 )
 
-//type RasterizerNotifier interface {
-//	Rasterizer
-//	SwitchDo()
-//	SwitchPost()
-//}
 type Rasterizer interface {
-	Resize(w, h int)
+	Setup(w, h int)
 	SubRasterizer
 }
+
 type SubRasterizer interface {
-	//StartRaw() (data []byte, stride int)
-	//EndRaw()
-	Size() fixed.Rectangle52_12
-	Draw(img draw.Image, op draw.Op)
-	SubRasterizer(subbound fixed.Rectangle52_12) SubRasterizer
-	NewPath() VectorPath
+	Root() Rasterizer
+	Bound() image.Rectangle
+	SubRasterizer(r image.Rectangle) SubRasterizer
 	VectorDrawer
 }
-type VectorPath interface {
-	VectorDrawer
-	Commit()
-}
+
 type VectorDrawer interface {
-	IsBegin() bool
-	MoveTo(to fixed.Point52_12)
-	LineTo(to fixed.Point52_12)
-	QuadTo(pivot fixed.Point52_12, to fixed.Point52_12)
-	CubeTo(pivot1 fixed.Point52_12, pivot2 fixed.Point52_12, to fixed.Point52_12)
-	Close()
+	// Infomation
+	Size() (w, h float32)
+	PreviousPoint() mgl32.Vec2
+	Point() mgl32.Vec2
+	// Path
+	Reset()
+	MoveTo(to mgl32.Vec2)
+	LineTo(to mgl32.Vec2)
+	QuadTo(pivot, to mgl32.Vec2)
+	CubeTo(pivot1, pivot2, to mgl32.Vec2)
+	CloseTo()
+	// Draw
+	Clear()
 	Stroke()
 	Fill()
-	Clear(bound fixed.Rectangle52_12)
-	// TODO
-	// Contour(cont Contour)
-	//
-	StrokeDash(dashes ...fixed.Int52_12)
-	StrokeJoin(join StrokeJoin)
-	StrokeCap(cap StrokeCap)
-	StrokeWidth(width fixed.Int52_12)
-	Color(color color.Color)
-	FillStyle(fstyle Filler)
-	Options() Options
-	Revert(opts Options)
-
+	// Options
+	VectorOptions
 }
-
-var ClearAll = fixed.Rectangle52_12{
-	Min: fixed.Point52_12{
-		X: 0,
-		Y: 0,
-	},
-	Max: fixed.Point52_12{
-		X: 1 << 63 - 1,
-		Y: 1 << 63 - 1,
-	},
-	//maxI
+type VectorOptions interface {
+	DefaultOption()
+	Restore(opt Options)
+	Clone() Options
+	// getter
+	GetFiller() Filler
+	GetStrokeWidth() float32
+	GetStrokeJoin() StrokeJoin
+	GetStrokeCap() StrokeCap
+	GetStrokeColor() color.Color
+	// setter
+	SetFiller(f Filler)
+	SetStrokeWidth(w float32)
+	SetStrokeJoin(j StrokeJoin)
+	SetStrokeCap(c StrokeCap)
+	SetStrokeColor(c color.Color)
 }
-

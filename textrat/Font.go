@@ -1,10 +1,11 @@
 package textrat
 
 import (
-	"golang.org/x/image/math/fixed"
-	"golang.org/x/image/font"
 	"github.com/GUMI-golang/gorat"
 	"github.com/GUMI-golang/gumi/gcore"
+	"github.com/go-gl/mathgl/mgl32"
+	"golang.org/x/image/font"
+	"image"
 )
 
 type Font interface {
@@ -14,9 +15,9 @@ type Font interface {
 	Hint() font.Hinting
 	SetHint(hint font.Hinting)
 	//
-	Text(ctx gorat.VectorDrawer, text string, point fixed.Point52_12, align gcore.Align)
-	TextInRect(ctx gorat.VectorDrawer, text string, point fixed.Rectangle52_12, align gcore.Align)
-	PathText(ctx gorat.VectorDrawer, text string, point fixed.Point52_12, align gcore.Align)
-	PathTextInRect(ctx gorat.VectorDrawer, text string, point fixed.Rectangle52_12, align gcore.Align)
-	MeasureText(text string) (fixed.Point52_12)
+	Text(ctx gorat.VectorDrawer, text string, point mgl32.Vec2, align gcore.Align)
+	TextInRect(ctx gorat.VectorDrawer, text string, rect image.Rectangle, align gcore.Align)
+	PathText(ctx gorat.VectorDrawer, text string, point mgl32.Vec2, align gcore.Align)
+	PathTextInRect(ctx gorat.VectorDrawer, text string, rect image.Rectangle, align gcore.Align)
+	MeasureText(text string) mgl32.Vec2
 }

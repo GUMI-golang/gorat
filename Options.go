@@ -1,78 +1,64 @@
 package gorat
 
+import "image/color"
+
 type Options struct {
-	strokeJoin  StrokeJoin
-	strokeCap   StrokeCap
-	strokeWidth float32
-	//
-	overlap Overlap
-	filler  Filler
-	aa      AntiAliasing
-	// TODO
-	//
-
+	join   StrokeJoin
+	cap    StrokeCap
+	width  float32
+	color  ColorFiller
+	filler Filler
 }
 
-
-func (s *Options ) DefaultOption()  {
-	s.filler = NewColorFiller(0,0,0,255)
+func (s *Options) DefaultOption() {
+	s.join = StrokeJoinBevel
+	s.cap = StrokeCapButt
+	s.width = 1
+	s.color = NewColorFiller(0, 0, 0, 255)
+	s.filler = NewColorFiller(0, 0, 0, 255)
 }
-func (s Options) Backup() Options {
+func (s *Options) Restore(opt Options) {
+	s.filler = opt.filler
+}
+func (s *Options) Clone() Options {
 	return Options{
-		strokeJoin:  s.strokeJoin,
-		strokeCap:   s.strokeCap,
-		strokeWidth: s.strokeWidth,
-		filler:      s.filler,
-		overlap:     s.overlap,
+		filler: s.filler,
 	}
-}
-func (s *Options) Restore(o Options) {
-	s.strokeJoin = o.strokeJoin
-	s.strokeCap = o.strokeCap
-	s.strokeWidth = o.strokeWidth
-	s.filler = o.filler
-	s.overlap = o.overlap
 }
 
 // getter
-func (s Options) GetStrokeJoin() StrokeJoin {
-	return s.strokeJoin
-}
-func (s Options) GetStrokeCap() StrokeCap {
-	return s.strokeCap
-}
-func (s Options) GetStrokeWidth() float32 {
-	return s.strokeWidth
-}
-func (s Options) GetFiller() Filler {
+func (s *Options) GetFiller() Filler {
 	return s.filler
 }
-func (s Options) GetOverlap() Overlap {
-	return s.overlap
+func (s *Options) GetStrokeWidth() float32 {
+	return s.width
 }
-func (s Options) GetAntiAliasing() AntiAliasing {
-	return s.aa
+func (s *Options) GetStrokeJoin() StrokeJoin {
+	return s.join
+}
+func (s *Options) GetStrokeCap() StrokeCap {
+	return s.cap
+}
+func (s *Options) GetStrokeColor() color.Color{
+	return color.RGBA(s.color)
 }
 
 // setter
-func (s *Options) SetStrokeJoin(j StrokeJoin) {
-	s.strokeJoin = j
-}
-func (s *Options) SetStrokeCap(c StrokeCap) {
-	s.strokeCap = c
-}
-func (s *Options) SetStrokeWidth(w float32) {
-	s.strokeWidth = w
-}
 func (s *Options) SetFiller(f Filler) {
-	if f == nil{
-		f = NewColorFiller(0,0,0,255)
+	if f == nil {
+		f = NewColorFiller(0, 0, 0, 255)
 	}
 	s.filler = f
 }
-func (s *Options) SetOverlap(o Overlap) {
-	s.overlap = o
+func (s *Options) SetStrokeWidth(w float32) {
+	s.width = w
 }
-func (s *Options) SetAntiAliasing(aa AntiAliasing) {
-	s.aa = aa
+func (s *Options) SetStrokeJoin(j StrokeJoin) {
+	s.join = j
+}
+func (s *Options) SetStrokeCap(c StrokeCap) {
+	s.cap = c
+}
+func (s *Options) SetStrokeColor(c color.Color) {
+	s.color = ColorFillerModel.Convert(c).(ColorFiller)
 }

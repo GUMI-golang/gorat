@@ -2,42 +2,46 @@ package textrat
 
 import (
 	"github.com/GUMI-golang/gorat"
-	"golang.org/x/image/math/fixed"
 	"github.com/GUMI-golang/gumi/gcore"
+	"github.com/go-gl/mathgl/mgl32"
 	"github.com/golang/freetype/truetype"
+	"golang.org/x/image/math/fixed"
 )
 
-func raster(ctx gorat.VectorDrawer, buf *truetype.GlyphBuf, point fixed.Point52_12) {
+func raster(ctx gorat.VectorDrawer, buf *truetype.GlyphBuf, point mgl32.Vec2) {
 	var start int
 	for _, end := range buf.Ends {
 		contour(ctx, buf.Points[start:end], point)
 		start = end
 	}
 }
-func contour(ctx gorat.VectorDrawer, points []truetype.Point, point fixed.Point52_12) {
+func Fint32ToFloat32(i fixed.Int26_6) float32 {
+	return float32(i) / float32(0x40)
+}
+func contour(ctx gorat.VectorDrawer, points []truetype.Point, point mgl32.Vec2) {
 	if len(points) == 0 {
 		return
 	}
-	var first fixed.Point52_12
+	var first mgl32.Vec2
 	var ifirst, ilast = 0, len(points)
 	if points[0].Flags&0x01 != 0 {
 		ifirst = 1
-		first = fixed.Point52_12{
-			X: point.X + gorat.Fixed32ToFixed64(points[0].X),
-			Y: point.Y - gorat.Fixed32ToFixed64(points[0].Y),
+		first = mgl32.Vec2{
+			point[0] + Fint32ToFloat32(points[0].X),
+			point[1] - Fint32ToFloat32(points[0].Y),
 		}
 	} else {
-		last := fixed.Point52_12{
-			X: point.X + gorat.Fixed32ToFixed64(points[ilast-1].X),
-			Y: point.Y - gorat.Fixed32ToFixed64(points[ilast-1].Y),
+		last := mgl32.Vec2{
+			point[0] + Fint32ToFloat32(points[ilast-1].X),
+			point[1] - Fint32ToFloat32(points[ilast-1].Y),
 		}
 		if points[ilast-1].Flags&0x01 != 0 {
 			first = last
 			ilast = ilast - 1
 		} else {
-			first = fixed.Point52_12{
-				X: (first.X + last.X) / 2,
-				Y: (first.Y + last.Y) / 2,
+			first = mgl32.Vec2{
+				(first.X() + last.X()) / 2,
+				(first.Y() + last.Y()) / 2,
 			}
 		}
 	}
@@ -50,9 +54,9 @@ func contour(ctx gorat.VectorDrawer, points []truetype.Point, point fixed.Point5
 
 		p := points[i]
 
-		var q, qon = fixed.Point52_12{
-			X: point.X + gorat.Fixed32ToFixed64(p.X),
-			Y: point.Y - gorat.Fixed32ToFixed64(p.Y),
+		var q, qon = mgl32.Vec2{
+			point.X() + Fint32ToFloat32(p.X),
+			point.Y() - Fint32ToFloat32(p.Y),
 		}, p.Flags&0x01 != 0
 		if qon {
 			if q0on {
@@ -62,7 +66,7 @@ func contour(ctx gorat.VectorDrawer, points []truetype.Point, point fixed.Point5
 			}
 		} else {
 			if !q0on {
-				ctx.QuadTo(q0, q0.Add(q).Div(fixed.Int52_12(2 << 12)))
+				ctx.QuadTo(q0, q0.Add(q).Mul(0.5))
 			}
 		}
 		q0, q0on = q, qon
@@ -74,13 +78,13 @@ func contour(ctx gorat.VectorDrawer, points []truetype.Point, point fixed.Point5
 
 }
 
-func alignHelp(align gcore.Align, size fixed.Point52_12) (res fixed.Point52_12) {
+func alignHelp(align gcore.Align, size mgl32.Vec2) (res mgl32.Vec2) {
 	v, h := gcore.SplitAlign(align)
 	switch v {
 	case gcore.AlignTop:
-		res.Y = size.Y
+		res[1] = size[1]
 	case gcore.AlignVertical:
-		res.Y = size.Y / 2
+		res[1] = size[1] / 2
 	case gcore.AlignBottom:
 
 	}
@@ -88,9 +92,9 @@ func alignHelp(align gcore.Align, size fixed.Point52_12) (res fixed.Point52_12) 
 	case gcore.AlignLeft:
 
 	case gcore.AlignHorizontal:
-		res.X = -size.X / 2
+		res[0] = -size[0] / 2
 	case gcore.AlignRight:
-		res.X = -size.X
+		res[0] = -size[0]
 
 	}
 	return

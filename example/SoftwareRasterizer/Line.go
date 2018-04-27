@@ -6,7 +6,7 @@ import (
 )
 
 func LineOne(to *image.RGBA)  {
-	// Software rasterizer support RGBA Direct and RGBA SubImage
+	// SoftwareSub rasterizer support rgba Direct and rgba SubImage
 	rat := gorat.NewSoftwareRasterizerRGBA(to)
 	//
 	rat.SetStrokeWidth(20)

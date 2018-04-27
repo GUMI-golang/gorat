@@ -1,74 +1,52 @@
 package gorat
+
+import "golang.org/x/image/math/fixed"
+
 //
 //import (
 //	"golang.org/vecx/image/math/fixed"
 //	"image/Color"
 //)
 //
-//type Path struct {
-//	dst SubRasterizer
-//	//
-//	backup Options
-//	isbegin bool
-//	opt Options
-//	//
-//	works []interface{}
-//}
-//
-//func (s *Path) IsBegin() bool {
-//	return s.isbegin
-//}
-//
+type Path struct {
+	to VectorDrawer
+	//
+	backup Options
+	//
+	works []interface{}
+}
 //func (s *Path) Close() {
 //	s.works = append(s.works, pClose{
 //	})
 //	s.isbegin = false
 //}
 //
-//type (
-//	pMoveTo struct {
-//		to fixed.Point52_12
-//	}
-//	pLineTo struct {
-//		to fixed.Point52_12
-//	}
-//	pQuadTo struct {
-//		pivot, to fixed.Point52_12
-//	}
-//	pCubeTo struct {
-//		pivot1, pivot2, to fixed.Point52_12
-//	}
-//	pClose struct {
-//	}
-//	pStroke struct {}
-//	pFill struct {}
-//	pClear struct {
-//		bound fixed.Rectangle52_12
-//	}
-//	//
-//	pStrokeDash struct {
-//		dashes []fixed.Int52_12
-//	}
-//	pStrokeJoin struct {
-//		join StrokeJoin
-//	}
-//	pStrokeCap struct {
-//		cap StrokeCap
-//	}
-//	pStrokeWidth struct {
-//		width fixed.Int52_12
-//	}
-//	pColor struct {
-//		Color Color.Color
-//	}
-//	pFillStyle struct {
-//		fstyle Filler
-//	}
-//	pRevert struct {
-//		opts Options
-//	}
-//
-//)
+type (
+	pMoveTo struct {
+		to fixed.Point52_12
+	}
+	pLineTo struct {
+		to fixed.Point52_12
+	}
+	pQuadTo struct {
+		pivot, to fixed.Point52_12
+	}
+	pCubeTo struct {
+		pivot1, pivot2, to fixed.Point52_12
+	}
+	pClose struct {
+	}
+	pStroke struct {}
+	pFill struct {}
+	pClear struct {
+		bound fixed.Rectangle52_12
+	}
+	//
+	pFillStyle struct {
+		fstyle Filler
+	}
+
+)
 //
 ////func NewPath(dst SubRasterizer) VectorPath {
 ////	return &Path{
