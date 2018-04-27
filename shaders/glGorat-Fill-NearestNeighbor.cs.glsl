@@ -19,5 +19,5 @@ void main() {
     vec2 delta = vec2(float(fillersize.x) / float(bound.z - bound.x), float(fillersize.y) / float(bound.w - bound.y));
     //
     float intense = float(imageLoad(mask, pos).x) / MAXUINT16;
-    imageStore(result, pos, imageLoad(filler,  ivec2((vec2(pos.xy) + 0.5) * delta)) * intense);
+    imageStore(result, pos, imageLoad(filler,  ivec2((vec2(fillerpos) + 0.5) * delta)) * intense);
 }
