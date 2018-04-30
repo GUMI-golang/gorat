@@ -118,10 +118,10 @@ func (s *_ImageFillerFixed) rgba(x, y int) color.RGBA {
 		return color.RGBA{0,0,0,0}
 	}
 	return color.RGBA{
-		R: s.img.Pix[offset+r],
-		G: s.img.Pix[offset+g],
-		B: s.img.Pix[offset+b],
-		A: s.img.Pix[offset+a],
+		R: s.img.Pix[offset+pixr],
+		G: s.img.Pix[offset+pixg],
+		B: s.img.Pix[offset+pixb],
+		A: s.img.Pix[offset+pixa],
 	}
 }
 //===============================================================================================
@@ -156,11 +156,11 @@ func (s *_ImageFillerNearest) rgba(x, y int) color.RGBA {
 		srcoffset := s.img.PixOffset(kx+s.img.Rect.Min.X, int(v.val)+s.img.Rect.Min.Y)
 		normal := (float32(kx) - h.val) / s.scaleh
 		res := s.fn(normal)
-		// normalized r, g, b, a and sum
-		rr += float32(s.img.Pix[srcoffset+r]) * res
-		rg += float32(s.img.Pix[srcoffset+g]) * res
-		rb += float32(s.img.Pix[srcoffset+b]) * res
-		ra += float32(s.img.Pix[srcoffset+a]) * res
+		// normalized pixr, pixg, pixb, pixa and sum
+		rr += float32(s.img.Pix[srcoffset+pixr]) * res
+		rg += float32(s.img.Pix[srcoffset+pixg]) * res
+		rb += float32(s.img.Pix[srcoffset+pixb]) * res
+		ra += float32(s.img.Pix[srcoffset+pixa]) * res
 		sum += res
 	}
 	// V : pixel evaluate
@@ -168,11 +168,11 @@ func (s *_ImageFillerNearest) rgba(x, y int) color.RGBA {
 		srcoffset := s.img.PixOffset(int(h.val)+s.img.Rect.Min.X, ky+s.img.Rect.Min.Y)
 		normal := (float32(ky) - v.val) / s.scalev
 		res := s.fn(normal)
-		// normalized r, g, b, a and sum
-		rr += float32(s.img.Pix[srcoffset+r]) * res
-		rg += float32(s.img.Pix[srcoffset+g]) * res
-		rb += float32(s.img.Pix[srcoffset+b]) * res
-		ra += float32(s.img.Pix[srcoffset+a]) * res
+		// normalized pixr, pixg, pixb, pixa and sum
+		rr += float32(s.img.Pix[srcoffset+pixr]) * res
+		rg += float32(s.img.Pix[srcoffset+pixg]) * res
+		rb += float32(s.img.Pix[srcoffset+pixb]) * res
+		ra += float32(s.img.Pix[srcoffset+pixa]) * res
 		sum += res
 	}
 	return color.RGBA{
@@ -230,10 +230,10 @@ func (s *_ImageFillerNearestNeighbor) rgba(x, y int) color.RGBA {
 	}
 	offset := s.img.PixOffset(x, y)
 	return color.RGBA{
-		R: s.img.Pix[offset+r],
-		G: s.img.Pix[offset+g],
-		B: s.img.Pix[offset+b],
-		A: s.img.Pix[offset+a],
+		R: s.img.Pix[offset+pixr],
+		G: s.img.Pix[offset+pixg],
+		B: s.img.Pix[offset+pixb],
+		A: s.img.Pix[offset+pixa],
 	}
 }
 func (s *_ImageFillerNearestNeighbor) to(r image.Rectangle) {
@@ -276,11 +276,11 @@ func (s *_ImageFillerGaussian) rgba(x, y int) color.RGBA {
 		srcoffset := s.img.PixOffset(kx+s.img.Rect.Min.X, int(v.val)+s.img.Rect.Min.Y)
 		normal := (float32(kx) - h.val) / s.scaleh
 		res := s.fn(normal)
-		// normalized r, g, b, a and sum
-		rr += float32(s.img.Pix[srcoffset+r]) * res
-		rg += float32(s.img.Pix[srcoffset+g]) * res
-		rb += float32(s.img.Pix[srcoffset+b]) * res
-		ra += float32(s.img.Pix[srcoffset+a]) * res
+		// normalized pixr, pixg, pixb, pixa and sum
+		rr += float32(s.img.Pix[srcoffset+pixr]) * res
+		rg += float32(s.img.Pix[srcoffset+pixg]) * res
+		rb += float32(s.img.Pix[srcoffset+pixb]) * res
+		ra += float32(s.img.Pix[srcoffset+pixa]) * res
 		sum += res
 	}
 	// V : pixel evaluate
@@ -288,11 +288,11 @@ func (s *_ImageFillerGaussian) rgba(x, y int) color.RGBA {
 		srcoffset := s.img.PixOffset(int(h.val)+s.img.Rect.Min.X, ky+s.img.Rect.Min.Y)
 		normal := (float32(ky) - v.val) / s.scalev
 		res := s.fn(normal)
-		// normalized r, g, b, a and sum
-		rr += float32(s.img.Pix[srcoffset+r]) * res
-		rg += float32(s.img.Pix[srcoffset+g]) * res
-		rb += float32(s.img.Pix[srcoffset+b]) * res
-		ra += float32(s.img.Pix[srcoffset+a]) * res
+		// normalized pixr, pixg, pixb, pixa and sum
+		rr += float32(s.img.Pix[srcoffset+pixr]) * res
+		rg += float32(s.img.Pix[srcoffset+pixg]) * res
+		rb += float32(s.img.Pix[srcoffset+pixb]) * res
+		ra += float32(s.img.Pix[srcoffset+pixa]) * res
 		sum += res
 	}
 	return color.RGBA{
@@ -342,10 +342,10 @@ func (s *_ImageFillerRepeat) rgba(x, y int) color.RGBA {
 	y = y % s.height
 	offset := s.img.PixOffset(x+s.img.Rect.Min.X, y+s.img.Rect.Min.X)
 	return color.RGBA{
-		R: s.img.Pix[offset+r],
-		G: s.img.Pix[offset+g],
-		B: s.img.Pix[offset+b],
-		A: s.img.Pix[offset+a],
+		R: s.img.Pix[offset+pixr],
+		G: s.img.Pix[offset+pixg],
+		B: s.img.Pix[offset+pixb],
+		A: s.img.Pix[offset+pixa],
 	}
 }
 //===============================================================================================
@@ -363,10 +363,10 @@ func (s *_ImageFillerVerticalRepeat) rgba(x, y int) color.RGBA {
 		return color.RGBA{0,0,0,0}
 	}
 	return color.RGBA{
-		R: s.img.Pix[offset+r],
-		G: s.img.Pix[offset+g],
-		B: s.img.Pix[offset+b],
-		A: s.img.Pix[offset+a],
+		R: s.img.Pix[offset+pixr],
+		G: s.img.Pix[offset+pixg],
+		B: s.img.Pix[offset+pixb],
+		A: s.img.Pix[offset+pixa],
 	}
 }
 //===============================================================================================
@@ -381,9 +381,9 @@ func (s *_ImageFillerHorizontalRepeat) rgba(x, y int) color.RGBA {
 	}
 	offset := s.img.PixOffset(x+s.img.Rect.Min.X, y+s.img.Rect.Min.X)
 	return color.RGBA{
-		R: s.img.Pix[offset+r],
-		G: s.img.Pix[offset+g],
-		B: s.img.Pix[offset+b],
-		A: s.img.Pix[offset+a],
+		R: s.img.Pix[offset+pixr],
+		G: s.img.Pix[offset+pixg],
+		B: s.img.Pix[offset+pixb],
+		A: s.img.Pix[offset+pixa],
 	}
 }

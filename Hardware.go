@@ -1,13 +1,12 @@
 package gorat
 
 import (
-	"github.com/GUMI-golang/gumi/gcore"
 	"github.com/go-gl/mathgl/mgl32"
 	"image"
 	"image/color"
 	"math"
 	"runtime"
-	"fmt"
+	"image/draw"
 )
 
 const (
@@ -37,11 +36,7 @@ func NewHardware(to HardwareResult) *Hardware {
 	res.bound = mgl32.Vec4{0, 0, float32(w), float32(h)}
 	res.ws = hwDriver.WorkSpace(w, h)
 	res.rs = to
-	runtime.SetFinalizer(res, _HardwareCloser)
 	return res
-}
-func _HardwareCloser(h *Hardware) {
-	h.ws.Delete()
 }
 func _SubHardwareCloser(h *SubHardware) {
 	h.ws.Delete()
@@ -148,14 +143,8 @@ func (s *SubHardware) Point() mgl32.Vec2 {
 	}
 	return s.working[len(s.working)-1]
 }
-func (s *SubHardware) Fill() {
-	if len(s.working) < 3{
-		panic("Too little point")
-	}
-	s.CloseTo()
-	defer s.Reset()
-	fmt.Println(s.working)
-	s.fill(s.filler)
+func (s *SubHardware) Clear() {
+	s.root.rs.RectClear(s.Bound())
 }
 func (s *SubHardware) Stroke() {
 	if len(s.working) < 2{
@@ -172,9 +161,51 @@ func (s *SubHardware) Stroke() {
 	}
 	s.fill(s.color)
 }
-func (s *SubHardware) Clear() {
-	s.root.rs.RectClear(s.Bound())
+func (s *SubHardware) Fill() {
+	if len(s.working) < 3{
+		panic("Too little point")
+	}
+	s.CloseTo()
+	defer s.Reset()
+	s.fill(s.filler)
 }
+func (s *SubHardware) FillStroke() {
+	if len(s.working) < 3{
+		panic("Too little point")
+	}
+	panic("implement me")
+}
+func (s *SubHardware) StrokeFill() {
+	if len(s.working) < 3{
+		panic("Too little point")
+	}
+	panic("implement me")
+}
+
+func (s *SubHardware) debugStroke(stroking, filling draw.Image) {
+	if len(s.working) < 2{
+		panic("Too little point")
+	}
+	s.CloseTo()
+	defer s.Reset()
+	splited := splitStroke(s.working)
+	for _, l := range splited {
+		for _, v := range stroke(l, s.Options) {
+			s.LineTo(v)
+		}
+		s.CloseTo()
+	}
+	s.fillDebug(s.color, stroking, filling)
+}
+func (s *SubHardware) debugFill(stroking, filling draw.Image) {
+	if len(s.working) < 3{
+		panic("Too little point")
+	}
+	s.CloseTo()
+	defer s.Reset()
+	s.fillDebug(s.filler, stroking, filling)
+}
+
 func (s *SubHardware) fill(defineFiller Filler) {
 	var prog HardwareProgram
 	//=======================================================
@@ -190,12 +221,12 @@ func (s *SubHardware) fill(defineFiller Filler) {
 	// set points data
 	ctx.Set(s.working...)
 	bd.Set(image.Rect(int(s.bound[0]), int(s.bound[1]), int(s.bound[2]), int(s.bound[3])))
+	//
 	prog.BindWorkspace(0, s.ws)
 	prog.BindContext(1, ctx)
 	prog.BindBound(2, bd)
 	prog.Compute(len(s.working)-1, 1, 1)
 	hwpStroker <- prog
-	gcore.Capture("a0-0", s.ws.Visualize())
 	//=======================================================
 	// filling
 	prog = <-hwpFiller
@@ -214,7 +245,142 @@ func (s *SubHardware) fill(defineFiller Filler) {
 	prog.BindWorkspace(0, s.ws)
 	prog.BindBound(1, bd)
 	prog.Compute(int(s.bound[3]-s.bound[1]), 1, 1)
-	gcore.Capture("a0-1", s.ws.Visualize())
+	hwpFiller <- prog
+	//=======================================================
+	// fillstyling
+	switch f := defineFiller.(type) {
+	case ColorFiller:
+		c := hwDriver.Color()
+		defer c.Delete()
+		c.Set(color.RGBA(f))
+		prog = <-hwpColor
+		prog.Use()
+		prog.BindWorkspace(0, s.ws)
+		prog.BindResult(1, s.root.rs)
+		prog.BindColor(2, c)
+
+		prog.Compute(int(s.bound[2]-s.bound[0]), int(s.bound[3]-s.bound[1]), 1)
+		hwpColor <- prog
+	case *_ImageFillerFixed:
+		filler := hwDriver.Filler(f.img)
+		defer filler.Delete()
+		prog = <-hwpFixed
+		prog.Use()
+		prog.BindWorkspace(0, s.ws)
+		prog.BindResult(1, s.root.rs)
+		prog.BindBound(2, bd)
+		prog.BindFiller(3, filler)
+		prog.Compute(int(s.bound[2]-s.bound[0]), int(s.bound[3]-s.bound[1]), 1)
+		hwpFixed <- prog
+	case *_ImageFillerGaussian:
+		filler := hwDriver.Filler(f.img)
+		defer filler.Delete()
+		prog = <-hwpGaussian
+		prog.Use()
+		prog.BindWorkspace(0, s.ws)
+		prog.BindResult(1, s.root.rs)
+		prog.BindBound(2, bd)
+		prog.BindFiller(3, filler)
+		prog.Compute(int(s.bound[2]-s.bound[0]), int(s.bound[3]-s.bound[1]), 1)
+		hwpGaussian <- prog
+	case *_ImageFillerNearest:
+		filler := hwDriver.Filler(f.img)
+		defer filler.Delete()
+		prog = <-hwpNearest
+		prog.Use()
+		prog.BindWorkspace(0, s.ws)
+		prog.BindResult(1, s.root.rs)
+		prog.BindBound(2, bd)
+		prog.BindFiller(3, filler)
+		prog.Compute(int(s.bound[2]-s.bound[0]), int(s.bound[3]-s.bound[1]), 1)
+		hwpNearest <- prog
+	case *_ImageFillerNearestNeighbor:
+		filler := hwDriver.Filler(f.img)
+		defer filler.Delete()
+		prog = <-hwpNearestNeighbor
+		prog.Use()
+		prog.BindWorkspace(0, s.ws)
+		prog.BindResult(1, s.root.rs)
+		prog.BindBound(2, bd)
+		prog.BindFiller(3, filler)
+		prog.Compute(int(s.bound[2]-s.bound[0]), int(s.bound[3]-s.bound[1]), 1)
+		hwpNearestNeighbor <- prog
+	case *_ImageFillerRepeat:
+		filler := hwDriver.Filler(f.img)
+		defer filler.Delete()
+		prog = <-hwpRepeat
+		prog.Use()
+		prog.BindWorkspace(0, s.ws)
+		prog.BindResult(1, s.root.rs)
+		prog.BindBound(2, bd)
+		prog.BindFiller(3, filler)
+		prog.Compute(int(s.bound[2]-s.bound[0]), int(s.bound[3]-s.bound[1]), 1)
+		hwpRepeat <- prog
+	case *_ImageFillerHorizontalRepeat:
+		filler := hwDriver.Filler(f.img)
+		defer filler.Delete()
+		prog = <-hwpRepeat_h
+		prog.Use()
+		prog.BindWorkspace(0, s.ws)
+		prog.BindResult(1, s.root.rs)
+		prog.BindBound(2, bd)
+		prog.BindFiller(3, filler)
+		prog.Compute(int(s.bound[2]-s.bound[0]), int(s.bound[3]-s.bound[1]), 1)
+		hwpRepeat_h <- prog
+	case *_ImageFillerVerticalRepeat:
+		filler := hwDriver.Filler(f.img)
+		defer filler.Delete()
+		prog = <-hwpRepeat_v
+		prog.Use()
+		prog.BindWorkspace(0, s.ws)
+		prog.BindResult(1, s.root.rs)
+		prog.BindBound(2, bd)
+		prog.BindFiller(3, filler)
+		prog.Compute(int(s.bound[2]-s.bound[0]), int(s.bound[3]-s.bound[1]), 1)
+		hwpRepeat_v <- prog
+	}
+}
+func (s *SubHardware) fillDebug(defineFiller Filler, stroking, filling draw.Image) {
+	var prog HardwareProgram
+	//=======================================================
+	// stroking
+	prog = <-hwpStroker
+	prog.Use()
+	// points context
+	ctx := hwDriver.Context()
+	defer ctx.Delete()
+	// bound
+	bd := hwDriver.Bound()
+	defer bd.Delete()
+	// set points data
+	ctx.Set(s.working...)
+	bd.Set(image.Rect(int(s.bound[0]), int(s.bound[1]), int(s.bound[2]), int(s.bound[3])))
+	//
+	prog.BindWorkspace(0, s.ws)
+	prog.BindContext(1, ctx)
+	prog.BindBound(2, bd)
+	prog.Compute(len(s.working)-1, 1, 1)
+	hwpStroker <- prog
+	draw.Draw(stroking, stroking.Bounds(), s.ws.Visualize(), image.ZP, draw.Src)
+	//=======================================================
+	// filling
+	prog = <-hwpFiller
+	prog.Use()
+
+	bd.Set(image.Rectangle{
+		Min: image.Point{
+			X: math.MaxInt32,
+			Y: math.MaxInt32,
+		},
+		Max: image.Point{
+			X: math.MinInt32,
+			Y: math.MinInt32,
+		},
+	})
+	prog.BindWorkspace(0, s.ws)
+	prog.BindBound(1, bd)
+	prog.Compute(int(s.bound[3]-s.bound[1]), 1, 1)
+	draw.Draw(filling, filling.Bounds(), s.ws.Visualize(), image.ZP, draw.Src)
 	hwpFiller <- prog
 	//=======================================================
 	// fillstyling
