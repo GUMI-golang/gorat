@@ -16,3 +16,5 @@
 # media file
 *.png
 *.jpg
+
+\.idea/
