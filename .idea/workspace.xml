@@ -2,17 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e525712-370b-4186-81e3-7e4dae202d2e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Debug.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HardwareContext.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HardwareUtil.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fwrat/Screen.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oglSupport/v44/v44.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oglSupport/v45/v45.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oglSupport/v46/v46.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shaders/glGorat-Util-Mixing.cs.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Debug.go" beforeDir="false" afterPath="$PROJECT_DIR$/Debug.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fillers.go" beforeDir="false" afterPath="$PROJECT_DIR$/Fillers.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hardware.go" beforeDir="false" afterPath="$PROJECT_DIR$/Hardware.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HardwareDriver.go" beforeDir="false" afterPath="$PROJECT_DIR$/HardwareDriver.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Options.go" beforeDir="false" afterPath="$PROJECT_DIR$/Options.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rasterizer.go" beforeDir="false" afterPath="$PROJECT_DIR$/Rasterizer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software.go" beforeDir="false" afterPath="$PROJECT_DIR$/Software.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SubSoftware.go" beforeDir="false" afterPath="$PROJECT_DIR$/SubSoftware.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/test2.go" beforeDir="false" afterPath="$PROJECT_DIR$/example/test2.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fwrat/context.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fwrat/offscreen.go" beforeDir="false" afterPath="$PROJECT_DIR$/fwrat/Offscreen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oglSupport/v43/v43.go" beforeDir="false" afterPath="$PROJECT_DIR$/oglSupport/v43/v43.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shaders/assets.go" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/assets.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/glGorat-Fill-Color.cs.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/glGorat-Fill-Color.cs.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/glGorat-Fill-Fixed.cs.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/glGorat-Fill-Fixed.cs.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/glGorat-Fill-Gaussian.cs.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/glGorat-Fill-Gaussian.cs.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/glGorat-Fill-Nearest.cs.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/glGorat-Fill-Nearest.cs.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/glGorat-Fill-NearestNeighbor.cs.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/glGorat-Fill-NearestNeighbor.cs.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/glGorat-Fill-Repeat-horizontal.cs.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/glGorat-Fill-Repeat-horizontal.cs.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/glGorat-Fill-Repeat-vertical.cs.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/glGorat-Fill-Repeat-vertical.cs.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/glGorat-Fill-Repeat.cs.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/glGorat-Fill-Repeat.cs.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shaders/glGorat-Stroker-type2.cs.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/glGorat-Stroker-type2.cs.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/util.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/textrat/VectorFont.go" beforeDir="false" afterPath="$PROJECT_DIR$/textrat/VectorFont.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,136 +46,125 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="test2.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="generate.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shaders/generate.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test2.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example/test2.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+            <state relative-caret-position="-70">
+              <caret line="22" column="22" selection-start-line="18" selection-start-column="4" selection-end-line="22" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Software.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Software.go">
+      <file leaf-file-name="aout0.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/aout0.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="assets.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shaders/assets.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="3" selection-start-line="2" selection-start-column="2" selection-end-line="27" selection-end-column="3" />
+            <state relative-caret-position="247">
+              <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Hardware.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Hardware.go">
+      <file leaf-file-name="Offscreen.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fwrat/Offscreen.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+            <state relative-caret-position="285">
+              <caret line="83" column="18" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="18" />
               <folding>
-                <element signature="n#!!block;n#Setup#0" />
-                <element signature="n#!!block;n#Root#0" />
-                <element signature="n#!!block;n#Bound#0" />
-                <element signature="n#!!block;n#SubRasterizer#0" />
-                <element signature="n#!!block;n#Size#0" />
-                <element signature="n#!!block;n#Reset#0" />
-                <element signature="n#!!block;n#MoveTo#0" />
-                <element signature="n#!!block;n#LineTo#0" />
-                <element signature="n#!!block;n#QuadTo#0" />
-                <element signature="n#!!block;n#CubeTo#0" />
-                <element signature="n#!!block;n#CloseTo#0" />
-                <element signature="n#!!block;n#PreviousPoint#0" />
-                <element signature="n#!!block;n#Point#0" />
-                <element signature="n#!!block;n#Clear#0" />
-                <element signature="n#!!block;n#Stroke#0" />
-                <element signature="n#!!block;n#FillStroke#0" />
-                <element signature="n#!!block;n#StrokeFill#0" />
-                <element signature="n#!!block;n#debugStroke#0" />
-                <element signature="n#!!block;n#debugFill#0" />
+                <element signature="n#!!block;n#UtilLoadMixing#0" />
+                <element signature="n#!!block;n#UtilUnloadMixing#0" />
+                <element signature="n#!!block;n#Driver#0" />
+                <element signature="n#!!block;n#LoadStroker#0" />
+                <element signature="n#!!block;n#LoadFiller#0" />
+                <element signature="n#!!block;n#LoadColor#0" />
+                <element signature="n#!!block;n#LoadFixed#0" />
+                <element signature="n#!!block;n#LoadGaussian#0" />
+                <element signature="n#!!block;n#LoadNearest#0" />
+                <element signature="n#!!block;n#LoadNearestNeighbor#0" />
+                <element signature="n#!!block;n#LoadRepeat#0" />
+                <element signature="n#!!block;n#LoadRepeatHorizontal#0" />
+                <element signature="n#!!block;n#LoadRepeatVertical#0" />
+                <element signature="n#!!block;n#UnloadStroker#0" />
+                <element signature="n#!!block;n#UnloadFiller#0" />
+                <element signature="n#!!block;n#UnloadColor#0" />
+                <element signature="n#!!block;n#UnloadFixed#0" />
+                <element signature="n#!!block;n#UnloadGaussian#0" />
+                <element signature="n#!!block;n#UnloadNearest#0" />
+                <element signature="n#!!block;n#UnloadNearestNeighbor#0" />
+                <element signature="n#!!block;n#UnloadRepeat#0" />
+                <element signature="n#!!block;n#UnloadRepeatHorizontal#0" />
+                <element signature="n#!!block;n#UnloadRepeatVertical#0" />
+                <element signature="n#!!block;n#GetWindow#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="v43.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oglSupport/v43/v43.go">
+      <file leaf-file-name="glGorat-Fill-Color.cs.glsl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shaders/glGorat-Fill-Color.cs.glsl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="884">
-              <caret line="194" selection-start-line="194" selection-end-line="194" />
+            <state relative-caret-position="228">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="glGorat-Util-Mixing.cs.glsl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/shaders/glGorat-Util-Mixing.cs.glsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HardwareContext.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HardwareContext.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="83" column="79" lean-forward="true" selection-start-line="83" selection-start-column="79" selection-end-line="83" selection-end-column="79" />
               <folding>
-                <element signature="e#229#249#0" />
-                <element signature="e#298#319#0" />
-                <element signature="e#367#383#0" />
-                <element signature="e#462#646#0" />
-                <element signature="e#547#569#0" />
-                <element signature="e#604#626#0" />
-                <element signature="e#707#1203#0" />
-                <element signature="e#1800#1864#0" />
-                <element signature="e#1907#1971#0" />
-                <element signature="e#2018#2084#0" />
-                <element signature="e#2145#2730#0" />
-                <element signature="e#2805#3498#0" />
-                <element signature="e#2904#2921#0" />
-                <element signature="e#3168#3423#0" />
-                <element signature="e#3531#3925#0" />
-                <element signature="e#3654#3911#0" />
-                <element signature="e#3993#4090#0" />
-                <element signature="e#4152#4249#0" />
-                <element signature="e#4313#4395#0" />
-                <element signature="e#4455#4535#0" />
-                <element signature="e#4595#4675#0" />
-                <element signature="e#4737#4833#0" />
-                <element signature="e#4859#4888#0" />
-                <element signature="e#4929#4985#0" />
-                <element signature="e#5049#5199#0" />
-                <element signature="e#5229#5400#0" />
-                <element signature="e#5512#5750#0" />
-                <element signature="e#5662#5748#0" />
-                <element signature="e#5689#5729#0" />
-                <element signature="e#5796#6329#0" />
-                <element signature="e#5992#6315#0" />
-                <element signature="e#6019#6312#0" />
-                <element signature="e#6137#6220#0" />
-                <element signature="e#6226#6308#0" />
-                <element signature="e#6369#6594#0" />
-                <element signature="e#6652#6805#0" />
-                <element signature="e#6853#7036#0" />
-                <element signature="e#7063#7237#0" />
-                <element signature="e#7273#7294#0" />
-                <element signature="e#7322#7373#0" />
-                <element signature="e#7410#7612#0" />
-                <element signature="e#7649#7874#0" />
-                <element signature="e#7926#7976#0" />
-                <element signature="e#8017#8153#0" />
-                <element signature="e#8201#8251#0" />
-                <element signature="e#8296#8519#0" />
-                <element signature="e#8311#8391#0" />
-                <element signature="e#8559#8870#0" />
-                <element signature="e#8730#8868#0" />
-                <element signature="e#8750#8797#0" />
-                <element signature="e#8817#8864#0" />
-                <element signature="e#8918#8968#0" />
-                <element signature="e#9005#9303#0" />
-                <element signature="e#9047#9175#0" />
-                <element signature="e#9339#9641#0" />
-                <element signature="e#9499#9639#0" />
-                <element signature="e#9692#9743#0" />
+                <element signature="n#!!block;n#Use#0" />
+                <element signature="n#!!block;n#call#0" />
+                <element signature="n#!!block;n#back#0" />
+                <element signature="n#!!block;n#Delete#0" />
+                <element signature="n#!!block;n#UtilLoadMixing#0" />
+                <element signature="n#!!block;n#UtilUnloadMixing#0" />
+                <element signature="n#!!block;n#Driver#0" />
+                <element signature="n#!!block;n#LoadStroker#0" />
+                <element signature="n#!!block;n#LoadFiller#0" />
+                <element signature="n#!!block;n#LoadColor#0" />
+                <element signature="n#!!block;n#LoadFixed#0" />
+                <element signature="n#!!block;n#LoadGaussian#0" />
+                <element signature="n#!!block;n#LoadNearest#0" />
+                <element signature="n#!!block;n#LoadNearestNeighbor#0" />
+                <element signature="n#!!block;n#LoadRepeat#0" />
+                <element signature="n#!!block;n#LoadRepeatHorizontal#0" />
+                <element signature="n#!!block;n#LoadRepeatVertical#0" />
+                <element signature="n#!!block;n#UnloadStroker#0" />
+                <element signature="n#!!block;n#UnloadFiller#0" />
+                <element signature="n#!!block;n#UnloadColor#0" />
+                <element signature="n#!!block;n#UnloadFixed#0" />
+                <element signature="n#!!block;n#UnloadGaussian#0" />
+                <element signature="n#!!block;n#UnloadNearest#0" />
+                <element signature="n#!!block;n#UnloadNearestNeighbor#0" />
+                <element signature="n#!!block;n#UnloadRepeat#0" />
+                <element signature="n#!!block;n#UnloadRepeatHorizontal#0" />
+                <element signature="n#!!block;n#UnloadRepeatVertical#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../go-gl/gl/v4.3-core/gl/package.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97699">
-              <caret line="5751" selection-start-line="5751" selection-end-line="5751" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Debug.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Debug.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -167,14 +174,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="GLSL Shader" />
         <option value="Go File" />
+        <option value="GLSL Shader" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>z.buf</find>
       <find>LineTo</find>
       <find>Quad</find>
       <find>Stroke</find>
@@ -194,12 +200,22 @@
       <find>NewHardware</find>
       <find>getProcAddr</find>
       <find>Result</find>
+      <find>size</find>
+      <find>+ s.bound[vecx]</find>
+      <find>+ s.bound[vecy]</find>
+      <find>glGorat-Fill-Color.cs.glsl</find>
+      <find>glgoratFillColorCsGlsl</find>
+      <find>bd</find>
       <find>fmt</find>
       <find>bound</find>
-      <find>size</find>
+      <find>chan</find>
+      <find>HardwareContext</find>
+      <find>hwp</find>
     </findStrings>
     <replaceStrings>
       <replace>s.img.Rect</replace>
+      <replace>()</replace>
+      <replace>Load</replace>
     </replaceStrings>
   </component>
   <component name="GOROOT" path="C:\Go" />
@@ -209,26 +225,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/example/GLRasterizer/glGorat.cs.glsl" />
-        <option value="$PROJECT_DIR$/example/GLRasterizer/glGorat-FillColor.cs.glsl" />
-        <option value="$PROJECT_DIR$/example/GLRasterizer/glGorat-Filler.cs.glsl" />
-        <option value="$PROJECT_DIR$/example/GLRasterizer/glGorat-Stroker.cs.glsl" />
-        <option value="$PROJECT_DIR$/example/GLRasterizer/glGorat-Fill-Gaussian.cs.glsl.go" />
-        <option value="$PROJECT_DIR$/example/GLRasterizer/simple.go" />
-        <option value="$PROJECT_DIR$/example/GLRasterizer/glGorat-Fill-Color.cs.glsl" />
-        <option value="$PROJECT_DIR$/oglSupport/ogls.go" />
-        <option value="$PROJECT_DIR$/example/GLRasterizer/glGorat-Fill-Fixed.cs.glsl" />
-        <option value="$PROJECT_DIR$/example/GLRasterizer/glGorat-Fill-Repeat.cs.glsl" />
-        <option value="$PROJECT_DIR$/example/GLRasterizer/glGorat-Fill-Repeat-horizontal.cs.glsl" />
-        <option value="$PROJECT_DIR$/example/GLRasterizer/glGorat-Fill-Repeat-vertical.cs.glsl" />
-        <option value="$PROJECT_DIR$/example/GLRasterizer/glGorat-Fill-NearestNeighbor.cs.glsl" />
-        <option value="$PROJECT_DIR$/example/GLRasterizer/glGorat-Fill-Nearest.cs.glsl" />
-        <option value="$PROJECT_DIR$/example/GLRasterizer/glGorat-Fill-Gaussian.cs.glsl" />
-        <option value="$PROJECT_DIR$/shaders/generate.go" />
-        <option value="$PROJECT_DIR$/LICENSE.md" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/HardwareRenderer.go" />
-        <option value="$PROJECT_DIR$/example/GLRasterizer/glutil.go" />
         <option value="$PROJECT_DIR$/ogls.go" />
         <option value="$PROJECT_DIR$/HardwareInterface.go" />
         <option value="$PROJECT_DIR$/GLRasterizer.go" />
@@ -237,29 +233,49 @@
         <option value="$PROJECT_DIR$/fwrat/init.go" />
         <option value="$PROJECT_DIR$/fwrat/glfw.go" />
         <option value="$PROJECT_DIR$/example/test.go" />
-        <option value="$PROJECT_DIR$/fwrat/context.go" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/fwrat/offscreen.go" />
         <option value="$PROJECT_DIR$/RasterizerOptions.go" />
         <option value="$PROJECT_DIR$/Option-defines.go" />
         <option value="$PROJECT_DIR$/figurat/Angle.go" />
         <option value="$PROJECT_DIR$/math.go" />
-        <option value="$PROJECT_DIR$/shaders/glGorat-Fill-NearestNeighbor.cs.glsl" />
         <option value="$PROJECT_DIR$/shaders/glGorat-Stroker.cs.glsl" />
         <option value="$PROJECT_DIR$/common-vector.go" />
         <option value="$PROJECT_DIR$/Fillers.go" />
-        <option value="$PROJECT_DIR$/oglSupport/v43/v43.go" />
-        <option value="$PROJECT_DIR$/HardwareDriver.go" />
         <option value="$PROJECT_DIR$/common-stroke.go" />
-        <option value="$PROJECT_DIR$/Options.go" />
-        <option value="$PROJECT_DIR$/shaders/glGorat-Stroker-type2.cs.glsl" />
-        <option value="$PROJECT_DIR$/Rasterizer.go" />
         <option value="$PROJECT_DIR$/Software.go" />
         <option value="$PROJECT_DIR$/SubSoftware.go" />
         <option value="$PROJECT_DIR$/util.go" />
+        <option value="$PROJECT_DIR$/Options.go" />
+        <option value="$PROJECT_DIR$/shaders/glGorat-Stroker-type2.cs.glsl" />
+        <option value="$PROJECT_DIR$/Debug.go" />
+        <option value="$PROJECT_DIR$/Rasterizer.go" />
+        <option value="$PROJECT_DIR$/textrat/VectorFont.go" />
+        <option value="$PROJECT_DIR$/shaders/glGorat-Fill-Color.cs.glsl" />
+        <option value="$PROJECT_DIR$/shaders/glGorat-Fill-Fixed.cs.glsl" />
+        <option value="$PROJECT_DIR$/shaders/glGorat-Fill-Gaussian.cs.glsl" />
+        <option value="$PROJECT_DIR$/shaders/glGorat-Fill-Nearest.cs.glsl" />
+        <option value="$PROJECT_DIR$/shaders/glGorat-Fill-NearestNeighbor.cs.glsl" />
+        <option value="$PROJECT_DIR$/shaders/glGorat-Fill-Repeat.cs.glsl" />
+        <option value="$PROJECT_DIR$/shaders/glGorat-Fill-Repeat-horizontal.cs.glsl" />
+        <option value="$PROJECT_DIR$/shaders/glGorat-Fill-Repeat-vertical.cs.glsl" />
+        <option value="$PROJECT_DIR$/textrat/RasterizedFont.go" />
+        <option value="$PROJECT_DIR$/oglSupport/v44/v44.go" />
+        <option value="$PROJECT_DIR$/oglSupport/v45/v45.go" />
+        <option value="$PROJECT_DIR$/oglSupport/v46/v46.go" />
+        <option value="$PROJECT_DIR$/fwrat/context.go" />
         <option value="$PROJECT_DIR$/Hardware.go" />
         <option value="$PROJECT_DIR$/example/test2.go" />
-        <option value="$PROJECT_DIR$/Debug.go" />
+        <option value="$PROJECT_DIR$/fwrat/offscreen.go" />
+        <option value="$PROJECT_DIR$/fwrat/shaders/generate.go" />
+        <option value="$PROJECT_DIR$/shaders/glGorat-util-mixing.glsl" />
+        <option value="$PROJECT_DIR$/shaders/glGorat-util-mixing.cs.glsl" />
+        <option value="$PROJECT_DIR$/fwrat/Screen.go" />
+        <option value="$PROJECT_DIR$/HardwareUtil.go" />
+        <option value="$PROJECT_DIR$/HardwareDriver.go" />
+        <option value="$PROJECT_DIR$/oglSupport/v43/v43.go" />
+        <option value="$PROJECT_DIR$/HardwareContext.go" />
+        <option value="$PROJECT_DIR$/fwrat/Offscreen.go" />
+        <option value="$PROJECT_DIR$/shaders/glGorat-Util-Mixing.cs.glsl" />
       </list>
     </option>
   </component>
@@ -273,9 +289,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="-10" />
     <option name="width" value="985" />
-    <option name="height" value="1038" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -290,6 +306,32 @@
               <item name="gorat" type="b2602c69:ProjectViewProjectNode" />
               <item name="gorat" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="gorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gorat" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gorat" type="462c0819:PsiDirectoryNode" />
+              <item name="fwrat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gorat" type="462c0819:PsiDirectoryNode" />
+              <item name="oglSupport" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gorat" type="462c0819:PsiDirectoryNode" />
+              <item name="oglSupport" type="462c0819:PsiDirectoryNode" />
+              <item name="v43" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gorat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gorat" type="462c0819:PsiDirectoryNode" />
+              <item name="shaders" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -298,6 +340,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/GUMI env/src/github.com/GUMI-golang/gorat/fwrat/offscreen.go" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -305,19 +348,19 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\GUMI env\src\github.com\GUMI-golang\gorat\fwrat\shaders" />
+      <recent name="C:\GUMI env\src\github.com\GUMI-golang\gorat\shaders" />
+      <recent name="C:\GUMI env\src\github.com\GUMI-golang\gorat\example\GLRasterizer" />
+      <recent name="C:\GUMI env\src\github.com\GUMI-golang\gorat" />
+      <recent name="E:\Git\golang\src\github.com\GUMI-golang\gorat\example" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\GUMI env\src\github.com\GUMI-golang\gorat" />
       <recent name="C:\GUMI env\src\github.com\GUMI-golang\gorat\oglSupport\v43" />
       <recent name="C:\GUMI env\src\github.com\GUMI-golang\gorat\shaders" />
       <recent name="C:\GUMI env\src\github.com\GUMI-golang\gorat\example\GLRasterizer" />
       <recent name="C:\GUMI env\src\github.com\GUMI-golang\gorat\f" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\GUMI env\src\github.com\GUMI-golang\gorat\shaders" />
-      <recent name="C:\GUMI env\src\github.com\GUMI-golang\gorat\example\GLRasterizer" />
-      <recent name="C:\GUMI env\src\github.com\GUMI-golang\gorat" />
-      <recent name="E:\Git\golang\src\github.com\GUMI-golang\gorat\example" />
-      <recent name="C:\GUMI env\src\github.com\GUMI-golang\gorat\example" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -433,45 +476,46 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22014925" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3295325" />
-      <window_info anchor="bottom" id="Statistic" order="9" weight="0.32897604" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18724832" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32952926" />
+      <window_info anchor="bottom" id="Statistic" order="9" weight="0.3281027" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5021482" side_tool="true" weight="0.39794755" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49785176" weight="0.32382312" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.5021482" side_tool="true" weight="0.53477764" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49785176" weight="0.28867102" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.53477764" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.53352356" />
       <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.49785176" weight="0.39794755" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3278867" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3266762" />
       <window_info anchor="right" id="Coverage" order="3" side_tool="true" weight="0.32975295" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21160042" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3295325" />
-      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.5021482" side_tool="true" weight="0.53477764" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49785176" weight="0.39338654" />
       <window_info anchor="bottom" id="Statistic" order="9" weight="0.3295325" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32839224" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.53477764" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5021482" side_tool="true" weight="0.39794755" />
-      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.5021482" side_tool="true" weight="0.53477764" />
       <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.49785176" weight="0.39794755" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" id="Coverage" order="3" side_tool="true" weight="0.32975295" />
@@ -486,10 +530,17 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/Hardware.go</url>
+          <line>94</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="27" />
+      <option name="time" value="29" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -502,490 +553,598 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Software.go">
+    <entry file="file://$PROJECT_DIR$/fwrat/context.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="3" lean-forward="true" selection-start-line="2" selection-start-column="2" selection-end-line="27" selection-end-column="3" />
+        <state relative-caret-position="38">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Hardware.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        <state relative-caret-position="627">
+          <caret line="179" column="48" selection-start-line="179" selection-start-column="48" selection-end-line="179" selection-end-column="48" />
           <folding>
+            <element signature="e#166#208#0" />
+            <element signature="e#226#333#0" />
+            <element signature="n#!!block;n#NewHardware#0" />
+            <element signature="e#484#514#0" />
+            <element signature="n#!!block;n#_SubHardwareCloser#0" />
             <element signature="n#!!block;n#Setup#0" />
             <element signature="n#!!block;n#Root#0" />
             <element signature="n#!!block;n#Bound#0" />
+            <element signature="e#988#1134#0" />
+            <element signature="e#1008#1059#0" />
+            <element signature="e#1079#1130#0" />
             <element signature="n#!!block;n#SubRasterizer#0" />
+            <element signature="e#1229#1337#0" />
             <element signature="n#!!block;n#Size#0" />
             <element signature="n#!!block;n#Reset#0" />
             <element signature="n#!!block;n#MoveTo#0" />
+            <element signature="e#1791#1854#0" />
+            <element signature="e#1860#1944#0" />
+            <element signature="e#1918#1940#0" />
             <element signature="n#!!block;n#LineTo#0" />
+            <element signature="e#2035#2057#0" />
             <element signature="n#!!block;n#QuadTo#0" />
+            <element signature="e#2152#2180#0" />
+            <element signature="e#2197#2219#0" />
+            <element signature="e#2268#2287#0" />
             <element signature="n#!!block;n#CubeTo#0" />
+            <element signature="e#2391#2421#0" />
+            <element signature="e#2442#2472#0" />
+            <element signature="e#2489#2511#0" />
+            <element signature="e#2569#2588#0" />
             <element signature="n#!!block;n#CloseTo#0" />
+            <element signature="e#2666#2679#0" />
             <element signature="n#!!block;n#PreviousPoint#0" />
+            <element signature="e#2875#2982#0" />
+            <element signature="e#2919#2979#0" />
+            <element signature="e#2949#2966#0" />
+            <element signature="e#2994#3015#0" />
             <element signature="n#!!block;n#Point#0" />
+            <element signature="e#3109#3130#0" />
             <element signature="n#!!block;n#Clear#0" />
             <element signature="n#!!block;n#Stroke#0" />
+            <element signature="e#3290#3337#0" />
+            <element signature="e#3430#3510#0" />
+            <element signature="e#3473#3493#0" />
+            <element signature="n#!!block;n#Fill#0" />
+            <element signature="e#3583#3630#0" />
             <element signature="n#!!block;n#FillStroke#0" />
-            <element signature="n#!!block;n#StrokeFill#0" />
-            <element signature="n#!!block;n#debugStroke#0" />
-            <element signature="n#!!block;n#debugFill#0" />
+            <element signature="e#3740#3772#0" />
+            <element signature="n#!!block;n#fill#0" />
+            <element signature="e#3905#3962#0" />
+            <element signature="e#4240#4297#0" />
+            <element signature="e#4453#4591#0" />
+            <element signature="e#4473#4520#0" />
+            <element signature="e#4540#4587#0" />
+            <element signature="e#4726#4783#0" />
+            <element signature="e#4927#5270#0" />
+            <element signature="e#5272#5647#0" />
+            <element signature="e#5649#6033#0" />
+            <element signature="e#6035#6416#0" />
+            <element signature="e#6418#6823#0" />
+            <element signature="e#6825#7203#0" />
+            <element signature="e#7205#7613#0" />
+            <element signature="e#7615#8017#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oglSupport/v43/v43.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="194" selection-start-line="194" selection-end-line="194" />
-          <folding>
-            <element signature="e#229#249#0" />
-            <element signature="e#298#319#0" />
-            <element signature="e#367#383#0" />
-            <element signature="e#462#646#0" />
-            <element signature="e#547#569#0" />
-            <element signature="e#604#626#0" />
-            <element signature="e#707#1203#0" />
-            <element signature="e#1800#1864#0" />
-            <element signature="e#1907#1971#0" />
-            <element signature="e#2018#2084#0" />
-            <element signature="e#2145#2730#0" />
-            <element signature="e#2805#3498#0" />
-            <element signature="e#2904#2921#0" />
-            <element signature="e#3168#3423#0" />
-            <element signature="e#3531#3925#0" />
-            <element signature="e#3654#3911#0" />
-            <element signature="e#3993#4090#0" />
-            <element signature="e#4152#4249#0" />
-            <element signature="e#4313#4395#0" />
-            <element signature="e#4455#4535#0" />
-            <element signature="e#4595#4675#0" />
-            <element signature="e#4737#4833#0" />
-            <element signature="e#4859#4888#0" />
-            <element signature="e#4929#4985#0" />
-            <element signature="e#5049#5199#0" />
-            <element signature="e#5229#5400#0" />
-            <element signature="e#5512#5750#0" />
-            <element signature="e#5662#5748#0" />
-            <element signature="e#5689#5729#0" />
-            <element signature="e#5796#6329#0" />
-            <element signature="e#5992#6315#0" />
-            <element signature="e#6019#6312#0" />
-            <element signature="e#6137#6220#0" />
-            <element signature="e#6226#6308#0" />
-            <element signature="e#6369#6594#0" />
-            <element signature="e#6652#6805#0" />
-            <element signature="e#6853#7036#0" />
-            <element signature="e#7063#7237#0" />
-            <element signature="e#7273#7294#0" />
-            <element signature="e#7322#7373#0" />
-            <element signature="e#7410#7612#0" />
-            <element signature="e#7649#7874#0" />
-            <element signature="e#7926#7976#0" />
-            <element signature="e#8017#8153#0" />
-            <element signature="e#8201#8251#0" />
-            <element signature="e#8296#8519#0" />
-            <element signature="e#8311#8391#0" />
-            <element signature="e#8559#8870#0" />
-            <element signature="e#8730#8868#0" />
-            <element signature="e#8750#8797#0" />
-            <element signature="e#8817#8864#0" />
-            <element signature="e#8918#8968#0" />
-            <element signature="e#9005#9303#0" />
-            <element signature="e#9047#9175#0" />
-            <element signature="e#9339#9641#0" />
-            <element signature="e#9499#9639#0" />
-            <element signature="e#9692#9743#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../go-gl/gl/v4.3-core/gl/package.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97767">
-          <caret line="5751" selection-start-line="5751" selection-end-line="5751" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Debug.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../fogleman/gg/context.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="291" column="18" lean-forward="true" selection-start-line="291" selection-start-column="18" selection-end-line="291" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/glGorat-Fill-Color.cs.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/GLRasterizer/Simple2.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/glGorat-Fill-Gaussian.cs.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-505">
-          <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/Main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="1" column="2" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aout.png" />
-    <entry file="file://$PROJECT_DIR$/fwrat/init.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../go-gl/glfw/v3.2/glfw/error.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="148" column="5" selection-start-line="148" selection-start-column="5" selection-end-line="148" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../go-gl/glfw/v3.2/glfw/native_windows.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md" />
-    <entry file="file://$PROJECT_DIR$/RasterizerOptions.go" />
-    <entry file="file://$PROJECT_DIR$/fwrat/offscreen.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fwrat/context.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/figurat/Options.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-65">
-          <caret line="10" selection-start-line="10" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Path.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Option-defines.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/math.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/figurat/Angle.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-52">
-          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/glGorat-Fill-Fixed.cs.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go/src/math/bits.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="30" column="50" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/assets.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/glGorat-Fill-NearestNeighbor.cs.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="21" column="68" selection-start-line="21" selection-start-column="68" selection-end-line="21" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../go-gl/mathgl/mgl32/matrix.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-232">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/a0.png" />
-    <entry file="file://$PROJECT_DIR$/../../go-gl/mathgl/mgl32/transform.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aout1.png" />
-    <entry file="file://$PROJECT_DIR$/shaders/glGorat-Stroker.cs.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go/src/image/color/color.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13">
-          <caret line="164" column="5" lean-forward="true" selection-start-line="164" selection-start-column="5" selection-end-line="164" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-vector.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common-stroke.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/glGorat-Stroker-type2.cs.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Options.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HardwareDriver.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+        <state relative-caret-position="1121">
+          <caret line="64" column="1" selection-start-line="64" selection-start-column="1" selection-end-line="64" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/generate.go">
+    <entry file="file://$PROJECT_DIR$/HardwareContext.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="81" lean-forward="true" selection-start-line="2" selection-start-column="81" selection-end-line="2" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SubSoftware.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Fillers.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="120" column="28" selection-start-line="120" selection-start-column="28" selection-end-line="120" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../go-gl/gl/v4.3-core/gl/package.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97699">
-          <caret line="5751" selection-start-line="5751" selection-end-line="5751" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oglSupport/v43/v43.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="194" selection-start-line="194" selection-end-line="194" />
+        <state relative-caret-position="361">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
           <folding>
-            <element signature="e#229#249#0" />
-            <element signature="e#298#319#0" />
-            <element signature="e#367#383#0" />
-            <element signature="e#462#646#0" />
-            <element signature="e#547#569#0" />
-            <element signature="e#604#626#0" />
-            <element signature="e#707#1203#0" />
-            <element signature="e#1800#1864#0" />
-            <element signature="e#1907#1971#0" />
-            <element signature="e#2018#2084#0" />
-            <element signature="e#2145#2730#0" />
-            <element signature="e#2805#3498#0" />
-            <element signature="e#2904#2921#0" />
-            <element signature="e#3168#3423#0" />
-            <element signature="e#3531#3925#0" />
-            <element signature="e#3654#3911#0" />
-            <element signature="e#3993#4090#0" />
-            <element signature="e#4152#4249#0" />
-            <element signature="e#4313#4395#0" />
-            <element signature="e#4455#4535#0" />
-            <element signature="e#4595#4675#0" />
-            <element signature="e#4737#4833#0" />
-            <element signature="e#4859#4888#0" />
-            <element signature="e#4929#4985#0" />
-            <element signature="e#5049#5199#0" />
-            <element signature="e#5229#5400#0" />
-            <element signature="e#5512#5750#0" />
-            <element signature="e#5662#5748#0" />
-            <element signature="e#5689#5729#0" />
-            <element signature="e#5796#6329#0" />
-            <element signature="e#5992#6315#0" />
-            <element signature="e#6019#6312#0" />
-            <element signature="e#6137#6220#0" />
-            <element signature="e#6226#6308#0" />
-            <element signature="e#6369#6594#0" />
-            <element signature="e#6652#6805#0" />
-            <element signature="e#6853#7036#0" />
-            <element signature="e#7063#7237#0" />
-            <element signature="e#7273#7294#0" />
-            <element signature="e#7322#7373#0" />
-            <element signature="e#7410#7612#0" />
-            <element signature="e#7649#7874#0" />
-            <element signature="e#7926#7976#0" />
-            <element signature="e#8017#8153#0" />
-            <element signature="e#8201#8251#0" />
-            <element signature="e#8296#8519#0" />
-            <element signature="e#8311#8391#0" />
-            <element signature="e#8559#8870#0" />
-            <element signature="e#8730#8868#0" />
-            <element signature="e#8750#8797#0" />
-            <element signature="e#8817#8864#0" />
-            <element signature="e#8918#8968#0" />
-            <element signature="e#9005#9303#0" />
-            <element signature="e#9047#9175#0" />
-            <element signature="e#9339#9641#0" />
-            <element signature="e#9499#9639#0" />
-            <element signature="e#9692#9743#0" />
+            <element signature="n#!!block;n#Use#0" />
+            <element signature="n#!!block;n#call#0" />
+            <element signature="n#!!block;n#back#0" />
+            <element signature="n#!!block;n#Delete#0" />
+            <element signature="n#!!block;n#UtilLoadMixing#0" />
+            <element signature="n#!!block;n#UtilUnloadMixing#0" />
+            <element signature="n#!!block;n#Driver#0" />
+            <element signature="n#!!block;n#LoadStroker#0" />
+            <element signature="n#!!block;n#LoadFiller#0" />
+            <element signature="n#!!block;n#LoadColor#0" />
+            <element signature="n#!!block;n#LoadFixed#0" />
+            <element signature="n#!!block;n#LoadGaussian#0" />
+            <element signature="n#!!block;n#LoadNearest#0" />
+            <element signature="n#!!block;n#LoadNearestNeighbor#0" />
+            <element signature="n#!!block;n#LoadRepeat#0" />
+            <element signature="n#!!block;n#LoadRepeatHorizontal#0" />
+            <element signature="n#!!block;n#LoadRepeatVertical#0" />
+            <element signature="n#!!block;n#UnloadStroker#0" />
+            <element signature="n#!!block;n#UnloadFiller#0" />
+            <element signature="n#!!block;n#UnloadColor#0" />
+            <element signature="n#!!block;n#UnloadFixed#0" />
+            <element signature="n#!!block;n#UnloadGaussian#0" />
+            <element signature="n#!!block;n#UnloadNearest#0" />
+            <element signature="n#!!block;n#UnloadNearestNeighbor#0" />
+            <element signature="n#!!block;n#UnloadRepeat#0" />
+            <element signature="n#!!block;n#UnloadRepeatHorizontal#0" />
+            <element signature="n#!!block;n#UnloadRepeatVertical#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rasterizer.go">
+    <entry file="file://$PROJECT_DIR$/fwrat/Offscreen.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Software.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="3" selection-start-line="2" selection-start-column="2" selection-end-line="27" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hardware.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        <state relative-caret-position="418">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
           <folding>
-            <element signature="n#!!block;n#Setup#0" />
-            <element signature="n#!!block;n#Root#0" />
-            <element signature="n#!!block;n#Bound#0" />
-            <element signature="n#!!block;n#SubRasterizer#0" />
-            <element signature="n#!!block;n#Size#0" />
-            <element signature="n#!!block;n#Reset#0" />
-            <element signature="n#!!block;n#MoveTo#0" />
-            <element signature="n#!!block;n#LineTo#0" />
-            <element signature="n#!!block;n#QuadTo#0" />
-            <element signature="n#!!block;n#CubeTo#0" />
-            <element signature="n#!!block;n#CloseTo#0" />
-            <element signature="n#!!block;n#PreviousPoint#0" />
-            <element signature="n#!!block;n#Point#0" />
-            <element signature="n#!!block;n#Clear#0" />
-            <element signature="n#!!block;n#Stroke#0" />
-            <element signature="n#!!block;n#FillStroke#0" />
-            <element signature="n#!!block;n#StrokeFill#0" />
-            <element signature="n#!!block;n#debugStroke#0" />
-            <element signature="n#!!block;n#debugFill#0" />
+            <element signature="n#!!block;n#UtilLoadMixing#0" />
+            <element signature="n#!!block;n#UtilUnloadMixing#0" />
+            <element signature="n#!!block;n#Driver#0" />
+            <element signature="n#!!block;n#LoadStroker#0" />
+            <element signature="n#!!block;n#LoadFiller#0" />
+            <element signature="n#!!block;n#LoadColor#0" />
+            <element signature="n#!!block;n#LoadFixed#0" />
+            <element signature="n#!!block;n#LoadGaussian#0" />
+            <element signature="n#!!block;n#LoadNearest#0" />
+            <element signature="n#!!block;n#LoadNearestNeighbor#0" />
+            <element signature="n#!!block;n#LoadRepeat#0" />
+            <element signature="n#!!block;n#LoadRepeatHorizontal#0" />
+            <element signature="n#!!block;n#LoadRepeatVertical#0" />
+            <element signature="n#!!block;n#UnloadStroker#0" />
+            <element signature="n#!!block;n#UnloadFiller#0" />
+            <element signature="n#!!block;n#UnloadColor#0" />
+            <element signature="n#!!block;n#UnloadFixed#0" />
+            <element signature="n#!!block;n#UnloadGaussian#0" />
+            <element signature="n#!!block;n#UnloadNearest#0" />
+            <element signature="n#!!block;n#UnloadNearestNeighbor#0" />
+            <element signature="n#!!block;n#UnloadRepeat#0" />
+            <element signature="n#!!block;n#UnloadRepeatHorizontal#0" />
+            <element signature="n#!!block;n#UnloadRepeatVertical#0" />
+            <element signature="n#!!block;n#GetWindow#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/example/test2.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+        <state relative-caret-position="228">
+          <caret line="22" column="22" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="22" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Debug.go">
+    <entry file="file://$PROJECT_DIR$/shaders/generate.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/test2.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="44" column="16" lean-forward="true" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/glGorat-Fill-Color.cs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="4" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/generate.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/test2.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hardware.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="151" column="14" selection-start-line="151" selection-start-column="14" selection-end-line="151" selection-end-column="14" />
+          <folding>
+            <element signature="e#166#208#0" />
+            <element signature="e#226#333#0" />
+            <element signature="n#!!block;n#NewHardware#0" />
+            <element signature="e#484#514#0" />
+            <element signature="n#!!block;n#_SubHardwareCloser#0" />
+            <element signature="n#!!block;n#Setup#0" />
+            <element signature="n#!!block;n#Root#0" />
+            <element signature="n#!!block;n#Bound#0" />
+            <element signature="e#988#1134#0" />
+            <element signature="e#1008#1059#0" />
+            <element signature="e#1079#1130#0" />
+            <element signature="n#!!block;n#SubRasterizer#0" />
+            <element signature="e#1229#1337#0" />
+            <element signature="n#!!block;n#Size#0" />
+            <element signature="n#!!block;n#Reset#0" />
+            <element signature="n#!!block;n#MoveTo#0" />
+            <element signature="e#1791#1854#0" />
+            <element signature="e#1860#1944#0" />
+            <element signature="e#1918#1940#0" />
+            <element signature="n#!!block;n#LineTo#0" />
+            <element signature="e#2035#2057#0" />
+            <element signature="n#!!block;n#QuadTo#0" />
+            <element signature="e#2152#2180#0" />
+            <element signature="e#2197#2219#0" />
+            <element signature="e#2268#2287#0" />
+            <element signature="n#!!block;n#CubeTo#0" />
+            <element signature="e#2391#2421#0" />
+            <element signature="e#2442#2472#0" />
+            <element signature="e#2489#2511#0" />
+            <element signature="e#2569#2588#0" />
+            <element signature="n#!!block;n#CloseTo#0" />
+            <element signature="e#2666#2679#0" />
+            <element signature="n#!!block;n#PreviousPoint#0" />
+            <element signature="e#2875#2982#0" />
+            <element signature="e#2919#2979#0" />
+            <element signature="e#2949#2966#0" />
+            <element signature="e#2994#3015#0" />
+            <element signature="n#!!block;n#Point#0" />
+            <element signature="e#3109#3130#0" />
+            <element signature="n#!!block;n#Clear#0" />
+            <element signature="n#!!block;n#Stroke#0" />
+            <element signature="e#3290#3337#0" />
+            <element signature="e#3430#3510#0" />
+            <element signature="e#3473#3493#0" />
+            <element signature="n#!!block;n#Fill#0" />
+            <element signature="e#3583#3630#0" />
+            <element signature="n#!!block;n#FillStroke#0" />
+            <element signature="e#3740#3772#0" />
+            <element signature="n#!!block;n#fill#0" />
+            <element signature="e#3905#3962#0" />
+            <element signature="e#4240#4297#0" />
+            <element signature="e#4453#4591#0" />
+            <element signature="e#4473#4520#0" />
+            <element signature="e#4540#4587#0" />
+            <element signature="e#4726#4783#0" />
+            <element signature="e#4927#5270#0" />
+            <element signature="e#5272#5647#0" />
+            <element signature="e#5649#6033#0" />
+            <element signature="e#6035#6416#0" />
+            <element signature="e#6418#6823#0" />
+            <element signature="e#6825#7203#0" />
+            <element signature="e#7205#7613#0" />
+            <element signature="e#7615#8017#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-342" />
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/image/draw/draw.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="252" column="45" selection-start-line="252" selection-start-column="43" selection-end-line="252" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/glGorat-Fill-Gaussian.cs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="64" column="47" selection-start-line="61" selection-start-column="4" selection-end-line="64" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/glGorat-Fill-Fixed.cs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="27" column="47" selection-start-line="24" selection-start-column="4" selection-end-line="27" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/glGorat-Fill-Nearest.cs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="63" column="47" lean-forward="true" selection-start-line="60" selection-start-column="4" selection-end-line="63" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/glGorat-Fill-NearestNeighbor.cs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="30" column="4" lean-forward="true" selection-start-line="30" selection-start-column="4" selection-end-line="33" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/glGorat-Fill-Repeat-horizontal.cs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="56" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/glGorat-Fill-Repeat-vertical.cs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textrat/RasterizedFont.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oglSupport/v46/v46.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oglSupport/v45/v45.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oglSupport/v44/v44.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fwrat/shaders/fwrat.fs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fwrat/shaders/generate.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fwrat/context.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/glGorat-Fill-Repeat.cs.glsl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+          <caret line="16" column="48" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fwrat/init.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hardware.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="179" column="48" selection-start-line="179" selection-start-column="48" selection-end-line="179" selection-end-column="48" />
+          <folding>
+            <element signature="e#166#208#0" />
+            <element signature="e#226#333#0" />
+            <element signature="n#!!block;n#NewHardware#0" />
+            <element signature="e#484#514#0" />
+            <element signature="n#!!block;n#_SubHardwareCloser#0" />
+            <element signature="n#!!block;n#Setup#0" />
+            <element signature="n#!!block;n#Root#0" />
+            <element signature="n#!!block;n#Bound#0" />
+            <element signature="e#988#1134#0" />
+            <element signature="e#1008#1059#0" />
+            <element signature="e#1079#1130#0" />
+            <element signature="n#!!block;n#SubRasterizer#0" />
+            <element signature="e#1229#1337#0" />
+            <element signature="n#!!block;n#Size#0" />
+            <element signature="n#!!block;n#Reset#0" />
+            <element signature="n#!!block;n#MoveTo#0" />
+            <element signature="e#1791#1854#0" />
+            <element signature="e#1860#1944#0" />
+            <element signature="e#1918#1940#0" />
+            <element signature="n#!!block;n#LineTo#0" />
+            <element signature="e#2035#2057#0" />
+            <element signature="n#!!block;n#QuadTo#0" />
+            <element signature="e#2152#2180#0" />
+            <element signature="e#2197#2219#0" />
+            <element signature="e#2268#2287#0" />
+            <element signature="n#!!block;n#CubeTo#0" />
+            <element signature="e#2391#2421#0" />
+            <element signature="e#2442#2472#0" />
+            <element signature="e#2489#2511#0" />
+            <element signature="e#2569#2588#0" />
+            <element signature="n#!!block;n#CloseTo#0" />
+            <element signature="e#2666#2679#0" />
+            <element signature="n#!!block;n#PreviousPoint#0" />
+            <element signature="e#2875#2982#0" />
+            <element signature="e#2919#2979#0" />
+            <element signature="e#2949#2966#0" />
+            <element signature="e#2994#3015#0" />
+            <element signature="n#!!block;n#Point#0" />
+            <element signature="e#3109#3130#0" />
+            <element signature="n#!!block;n#Clear#0" />
+            <element signature="n#!!block;n#Stroke#0" />
+            <element signature="e#3290#3337#0" />
+            <element signature="e#3430#3510#0" />
+            <element signature="e#3473#3493#0" />
+            <element signature="n#!!block;n#Fill#0" />
+            <element signature="e#3583#3630#0" />
+            <element signature="n#!!block;n#FillStroke#0" />
+            <element signature="e#3740#3772#0" />
+            <element signature="n#!!block;n#fill#0" />
+            <element signature="e#3905#3962#0" />
+            <element signature="e#4240#4297#0" />
+            <element signature="e#4453#4591#0" />
+            <element signature="e#4473#4520#0" />
+            <element signature="e#4540#4587#0" />
+            <element signature="e#4726#4783#0" />
+            <element signature="e#4927#5270#0" />
+            <element signature="e#5272#5647#0" />
+            <element signature="e#5649#6033#0" />
+            <element signature="e#6035#6416#0" />
+            <element signature="e#6418#6823#0" />
+            <element signature="e#6825#7203#0" />
+            <element signature="e#7205#7613#0" />
+            <element signature="e#7615#8017#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HardwareDriver.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oglSupport/v43/v43.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="116" column="19" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
+          <folding>
+            <element signature="e#13#193#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fwrat/Screen.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HardwareUtil.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/assets.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/glGorat-Stroker-type2.cs.glsl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fwrat/Offscreen.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="83" column="18" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="18" />
+          <folding>
+            <element signature="n#!!block;n#UtilLoadMixing#0" />
+            <element signature="n#!!block;n#UtilUnloadMixing#0" />
+            <element signature="n#!!block;n#Driver#0" />
+            <element signature="n#!!block;n#LoadStroker#0" />
+            <element signature="n#!!block;n#LoadFiller#0" />
+            <element signature="n#!!block;n#LoadColor#0" />
+            <element signature="n#!!block;n#LoadFixed#0" />
+            <element signature="n#!!block;n#LoadGaussian#0" />
+            <element signature="n#!!block;n#LoadNearest#0" />
+            <element signature="n#!!block;n#LoadNearestNeighbor#0" />
+            <element signature="n#!!block;n#LoadRepeat#0" />
+            <element signature="n#!!block;n#LoadRepeatHorizontal#0" />
+            <element signature="n#!!block;n#LoadRepeatVertical#0" />
+            <element signature="n#!!block;n#UnloadStroker#0" />
+            <element signature="n#!!block;n#UnloadFiller#0" />
+            <element signature="n#!!block;n#UnloadColor#0" />
+            <element signature="n#!!block;n#UnloadFixed#0" />
+            <element signature="n#!!block;n#UnloadGaussian#0" />
+            <element signature="n#!!block;n#UnloadNearest#0" />
+            <element signature="n#!!block;n#UnloadNearestNeighbor#0" />
+            <element signature="n#!!block;n#UnloadRepeat#0" />
+            <element signature="n#!!block;n#UnloadRepeatHorizontal#0" />
+            <element signature="n#!!block;n#UnloadRepeatVertical#0" />
+            <element signature="n#!!block;n#GetWindow#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HardwareContext.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="83" column="79" lean-forward="true" selection-start-line="83" selection-start-column="79" selection-end-line="83" selection-end-column="79" />
+          <folding>
+            <element signature="n#!!block;n#Use#0" />
+            <element signature="n#!!block;n#call#0" />
+            <element signature="n#!!block;n#back#0" />
+            <element signature="n#!!block;n#Delete#0" />
+            <element signature="n#!!block;n#UtilLoadMixing#0" />
+            <element signature="n#!!block;n#UtilUnloadMixing#0" />
+            <element signature="n#!!block;n#Driver#0" />
+            <element signature="n#!!block;n#LoadStroker#0" />
+            <element signature="n#!!block;n#LoadFiller#0" />
+            <element signature="n#!!block;n#LoadColor#0" />
+            <element signature="n#!!block;n#LoadFixed#0" />
+            <element signature="n#!!block;n#LoadGaussian#0" />
+            <element signature="n#!!block;n#LoadNearest#0" />
+            <element signature="n#!!block;n#LoadNearestNeighbor#0" />
+            <element signature="n#!!block;n#LoadRepeat#0" />
+            <element signature="n#!!block;n#LoadRepeatHorizontal#0" />
+            <element signature="n#!!block;n#LoadRepeatVertical#0" />
+            <element signature="n#!!block;n#UnloadStroker#0" />
+            <element signature="n#!!block;n#UnloadFiller#0" />
+            <element signature="n#!!block;n#UnloadColor#0" />
+            <element signature="n#!!block;n#UnloadFixed#0" />
+            <element signature="n#!!block;n#UnloadGaussian#0" />
+            <element signature="n#!!block;n#UnloadNearest#0" />
+            <element signature="n#!!block;n#UnloadNearestNeighbor#0" />
+            <element signature="n#!!block;n#UnloadRepeat#0" />
+            <element signature="n#!!block;n#UnloadRepeatHorizontal#0" />
+            <element signature="n#!!block;n#UnloadRepeatVertical#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/glGorat-Fill-Color.cs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/generate.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/test2.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-70">
+          <caret line="22" column="22" selection-start-line="18" selection-start-column="4" selection-end-line="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aout0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shaders/glGorat-Util-Mixing.cs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>

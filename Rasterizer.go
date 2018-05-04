@@ -4,7 +4,6 @@ import (
 	"github.com/go-gl/mathgl/mgl32"
 	"image"
 	"image/color"
-	"image/draw"
 )
 
 type Rasterizer interface {
@@ -36,10 +35,7 @@ type VectorDrawer interface {
 	Stroke()
 	Fill()
 	FillStroke()
-	StrokeFill()
 	//
-	debugFill(stroking, filling draw.Image)
-	debugStroke(stroking, filling draw.Image)
 	// Options
 	VectorOptions
 }

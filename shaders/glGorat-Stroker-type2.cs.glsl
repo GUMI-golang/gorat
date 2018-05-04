@@ -9,9 +9,6 @@ layout(r32i, binding = 0) uniform coherent iimage2D ioutput;
 layout (std430, binding = 1) buffer Points {
     vec2 points[];
 };
-layout (std430, binding = 2) buffer Bound {
-    ivec4 bound;
-};
 layout (local_size_x = 1, local_size_y = 1) in;
 
 int iclamp(int a, int min, int max);
@@ -47,7 +44,8 @@ void main() {
         float x0 = min(xCurr, xNext), x1 = max(xCurr, xNext);
         float xDiff = 1 / (ceil(x1) - floor(x0) + 1);
         for(int x = int(floor(x0)); x <= int(ceil(x1));x++){
-            imageAtomicAdd(ioutput, ivec2(iclamp(x, bound.x, bound.z), iclamp(y, bound.y, bound.w)), int(xDiff*dir * MAXUINT16));
+            ivec2 size = imageSize(ioutput);
+            imageAtomicAdd(ioutput, ivec2(iclamp(x, 0, size.x), iclamp(y, 0, size.y)), int(xDiff*dir * MAXUINT16));
         }
         xCurr = xNext;
     }

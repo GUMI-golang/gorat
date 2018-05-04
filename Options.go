@@ -14,8 +14,8 @@ func (s *Options) DefaultOption() {
 	s.join = StrokeJoinBevel
 	s.cap = StrokeCapButt
 	s.width = 1
-	s.color = NewColorFiller(0, 0, 0, 255)
-	s.filler = NewColorFiller(0, 0, 0, 255)
+	s.color = NewColorFiller(color.Black)
+	s.filler = NewColorFiller(color.Black)
 }
 func (s *Options) Restore(opt Options) {
 	s.filler = opt.filler
@@ -46,7 +46,7 @@ func (s *Options) GetStrokeColor() color.Color{
 // setter
 func (s *Options) SetFiller(f Filler) {
 	if f == nil {
-		f = NewColorFiller(0, 0, 0, 255)
+		f = NewColorFiller(color.Black)
 	}
 	s.filler = f
 }

@@ -1,9 +1,11 @@
-package v43
+// TODO : Add DMA support
+//
+package v46
 
 import (
 	"fmt"
 	"github.com/GUMI-golang/gorat"
-	"github.com/go-gl/gl/v4.3-core/gl"
+	"github.com/go-gl/gl/v4.6-core/gl"
 	"github.com/go-gl/mathgl/mgl32"
 	"image"
 	"image/color"
@@ -16,7 +18,9 @@ import (
 func Driver() gorat.Driver {
 	return driver{}
 }
+
 type driver struct{}
+
 func (driver) Init() error {
 	return gl.Init()
 }
@@ -29,9 +33,13 @@ func (driver) ComputeProgram(source io.Reader) (gorat.HardwareProgram, error) {
 	if err != nil {
 		return nil, err
 	}
+	err = prog.link()
+	if err != nil {
+		return nil, err
+	}
 	return prog, nil
 }
-func (driver) WorkSpace(w, h int) (gorat.HardwareWorkspace) {
+func (driver) WorkSpace(w, h int) gorat.HardwareWorkspace {
 	var ws uint32
 	gl.GenTextures(1, &ws)
 	gl.BindTexture(gl.TEXTURE_2D, ws)
@@ -51,7 +59,7 @@ func (driver) WorkSpace(w, h int) (gorat.HardwareWorkspace) {
 		gl.Ptr(nil))
 	return GLWorkspace(ws)
 }
-func (driver) Result(w, h int) (gorat.HardwareResult) {
+func (driver) Result(w, h int) gorat.HardwareResult {
 	var rs uint32
 	gl.GenTextures(1, &rs)
 	gl.BindTexture(gl.TEXTURE_2D, rs)
@@ -110,10 +118,6 @@ func (driver) Filler(rgba *image.RGBA) gorat.HardwareFiller {
 
 type GLProgram uint32
 
-func (s GLProgram) Delete() {
-	gl.DeleteProgram(uint32(s))
-}
-
 func (s GLProgram) compile(source io.Reader) error {
 	shader := gl.CreateShader(gl.COMPUTE_SHADER)
 	bts, err := ioutil.ReadAll(source)
@@ -139,11 +143,16 @@ func (s GLProgram) compile(source io.Reader) error {
 	}
 	gl.AttachShader(uint32(s), shader)
 	gl.DeleteShader(shader)
+	return nil
+}
+func (s GLProgram) link() error {
 	gl.LinkProgram(uint32(s))
+	var status int32
 	gl.GetProgramiv(uint32(s), gl.LINK_STATUS, &status)
 	if status == gl.FALSE {
 		var logLength int32
 		gl.GetProgramiv(uint32(s), gl.INFO_LOG_LENGTH, &logLength)
+
 		log := strings.Repeat("\x00", int(logLength+1))
 		gl.GetProgramInfoLog(uint32(s), logLength, nil, gl.Str(log))
 
@@ -177,6 +186,7 @@ func (s GLProgram) Compute(x, y, z int) {
 }
 
 type GLWorkspace uint32
+
 func (s GLWorkspace) Resize(w, h int) {
 	gl.BindTexture(gl.TEXTURE_2D, uint32(s))
 	gl.TexImage2D(gl.TEXTURE_2D, 0, gl.R32I, int32(w), int32(h), 0, gl.RGBA, gl.UNSIGNED_BYTE, gl.Ptr(nil))
@@ -232,6 +242,7 @@ func (s GLWorkspace) Size() (w, h int) {
 }
 
 type GLResult uint32
+
 func (s GLResult) Resize(w, h int) {
 	gl.BindTexture(gl.TEXTURE_2D, uint32(s))
 	gl.TexImage2D(gl.TEXTURE_2D, 0, gl.RGBA32F, int32(w), int32(h), 0, gl.RGBA, gl.UNSIGNED_BYTE, gl.Ptr(nil))
@@ -255,11 +266,11 @@ func (s GLResult) Delete() {
 func (s GLResult) Get() *image.RGBA {
 	var w, h = s.Size()
 	res := image.NewRGBA(image.Rect(0, 0, w, h))
-	var temp = make([]uint8, w * h * 4)
+	var temp = make([]uint8, w*h*4)
 	gl.BindTexture(gl.TEXTURE_2D, uint32(s))
 	gl.GetTexImage(gl.TEXTURE_2D, 0, gl.RGBA, gl.UNSIGNED_BYTE, gl.Ptr(temp))
-	for y := 0;y < h; y++{
-		copy(res.Pix[res.Stride * y: res.Stride * (y+1)], temp[res.Stride * (h - y - 1): res.Stride * (h - y)])
+	for y := 0; y < h; y++ {
+		copy(res.Pix[res.Stride*y:res.Stride*(y+1)], temp[res.Stride*(h-y-1):res.Stride*(h-y)])
 	}
 	return res
 }
@@ -272,6 +283,7 @@ func (s GLResult) Size() (w, h int) {
 }
 
 type GLContext uint32
+
 func (s GLContext) Delete() {
 	temp := uint32(s)
 	gl.DeleteBuffers(1, &temp)
@@ -282,6 +294,7 @@ func (s GLContext) Set(p ...mgl32.Vec2) {
 }
 
 type GLBound uint32
+
 func (s GLBound) Delete() {
 	temp := uint32(s)
 	gl.DeleteBuffers(1, &temp)
@@ -308,6 +321,7 @@ func (s GLBound) Get() image.Rectangle {
 }
 
 type GLColor uint32
+
 func (s GLColor) Delete() {
 	temp := uint32(s)
 	gl.DeleteBuffers(1, &temp)
@@ -337,7 +351,8 @@ func (s GLColor) Get() color.Color {
 }
 
 type GLFiller uint32
-func (s GLFiller) Delete()  {
+
+func (s GLFiller) Delete() {
 	temp := uint32(s)
 	gl.DeleteTextures(1, &temp)
 }

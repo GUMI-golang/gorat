@@ -11,7 +11,7 @@ import (
 	"image"
 )
 
-var Default Font = NewVectorFont(gcore.MustValue(truetype.Parse(goregular.TTF)).(*truetype.Font), 16, font.HintingFull)
+var Default Font = NewVectorFont(gcore.MustValue(truetype.Parse(goregular.TTF)).(*truetype.Font), 22, font.HintingFull)
 
 type VectorFont struct {
 	f    *truetype.Font

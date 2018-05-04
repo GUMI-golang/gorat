@@ -7,41 +7,36 @@ import (
 	"github.com/GUMI-golang/gorat/fwrat"
 	"github.com/GUMI-golang/gorat/oglSupport/v43"
 	"fmt"
-	"os"
-	"image/png"
 	"image"
+	"github.com/GUMI-golang/gorat/textrat"
+	"image/color"
 )
 
-var width, height = 256, 256
+var width, height = 800, 600
 func main() {
 	runtime.LockOSThread()
 	// setup driver
-	gcore.Must(gorat.SetupDriver(v43.Driver()))
-	// image loading
-	cube := gcore.MustValue(os.Open("example/cubes_64.png")).(*os.File)
-	defer cube.Close()
-	img := gcore.MustValue(png.Decode(cube)).(image.Image)
-	//
-	// screen setup
-	ctx := fwrat.OffscreenContext(width, height)
-	fmt.Println("Context", ctx)
-	// Make target texture
-	// It use driver, but if you need you can use your GL_TEXTURE_2D, GL_RGBA32F image
-	// Like
-	// res := gorat.HardwareResult(<your image uint32(gl pointer) here>)
-	res := gorat.Driver().Result(width, height)
-	//defer res.Delete()
+	octx := gcore.MustValue(fwrat.CreateOffscreenContext(v43.Driver())).(*fwrat.Offscreen)
+	defer octx.Delete()
+	gorat.Use(octx)
+	res := octx.Driver().Result(width, height)
+	defer res.Delete()
 	// gorat hardware delete gl object when grabage collecter remove *Hardware object
 	hw0 := gorat.NewHardware(res)
 	// filling
-	hw0.MoveTo(gorat.Vec2(32,32))
-	hw0.LineTo(gorat.Vec2(32, float32(height-32)))
-	hw0.LineTo(gorat.Vec2(float32(width-32), float32(height-32)))
-	hw0.LineTo(gorat.Vec2(float32(height-32), 32,))
-	hw0.SetFiller(gorat.NewImageFiller(img, gorat.ImageFillerGausian))
-	//hw0.Fill()
-	gorat.DEBUG.FillToFile(hw0, "aout0-stroking", "aout0-filling")
-
+	hw0.SetFiller(gorat.NewColorFiller(color.RGBA{255, 0, 0, 255}))
+	hw0.MoveTo(gorat.Vec2(0,0))
+	hw0.LineTo(gorat.Vec2(float32(width),0))
+	hw0.LineTo(gorat.Vec2(float32(width), float32(height)))
+	hw0.LineTo(gorat.Vec2(0, float32(height)))
+	hw0.Fill()
+	sub := hw0.SubRasterizer(image.Rect(32, 32, 800 - 32, 600-32))
+	bd := sub.Bound()
+	bd = bd.Sub(bd.Min)
+	fmt.Println(bd)
+	textrat.Default.SetSize(32)
+	sub.SetFiller(gorat.NewColorFiller(color.RGBA{0, 255, 0, 128}))
+	textrat.Default.TextInRect(sub, "Hello?", bd , gcore.AlignCenter)
 	// save result
 	gcore.Capture("aout0", res.Get())
 }

@@ -23,8 +23,9 @@ var ColorFillerModel = color.ModelFunc(func(c color.Color) color.Color {
 	r, g, b, a := c.RGBA()
 	return ColorFiller{uint8(r >> 8), uint8(g >> 8), uint8(b >> 8), uint8(a >> 8)}
 })
-func NewColorFiller(r, g, b, a uint8) ColorFiller {
-	return ColorFiller{r, g, b, a}
+func NewColorFiller(c color.Color) ColorFiller {
+	crgba := color.RGBAModel.Convert(c).(color.RGBA)
+	return ColorFiller{crgba.R, crgba.G, crgba.B, crgba.A}
 }
 func (s ColorFiller) rgba(x, y int) color.RGBA {
 	return color.RGBA(s)
